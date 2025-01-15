@@ -9,7 +9,7 @@
 <meta name="description" content="Covering different software engineering topics.">
 <meta name="keywords" content="c#, csharp, dotnet, byteaether, blog, tech, programming">
 <meta name="author" content="Joonatan Uusväli">
-<link rel="canonical" href="https://byteaether.github.io/404.html">
+<link rel="canonical" href="https://byteaether.github.io/">
 
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -18,7 +18,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 
 
-<meta property="og:url" content="https://byteaether.github.io/404.html">
+<meta property="og:url" content="https://byteaether.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ByteAether">
 <meta property="og:description" content="Covering different software engineering topics.">
@@ -44,7 +44,51 @@
     gtag('config', 'G-LEY00265EM');
 </script>
 
-		<style>/* Defaults */
+		<style>.post-card-meta
+{
+    margin-top: 0.5rem;
+    gap: 2rem;
+}
+.pagination {
+    margin-top: 2rem;
+}
+.pagination ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between the pagination items */
+}
+
+.pagination li {
+    display: inline-block;
+}
+.pagination li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.pagination li:hover a {
+    color: var(--link-color-hover);
+    text-decoration: none;
+    box-shadow: 0 2px 4px 2px var(--shadow-color);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.pagination li.active a {
+    background-color: var(--bg-color-secondary);
+    color: var(--link-color);
+}
+/* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
@@ -358,7 +402,7 @@ footer {
             <h2 class="visually-hidden">Top level navigation menu</h2>
             <ul class="nav">
                     <li class="nav-item">
-                        <a href="/">
+                        <a href="/" aria-current="page">
                             Home
                         </a>
                     </li>
@@ -400,8 +444,26 @@ footer {
 			<main id="skip">
 				<heading-anchors>
 					
-<h1 id="content-not-found." tabindex="-1">Content not found.</h1>
-<p>Go to <a href="/">homepage</a>.</p>
+
+<h1>Latest  Posts</h1>
+
+
+	
+
+<div class="post-card">
+    <h2><a href="/2025/dummy-welcome-post/">Dummy welcome post</a></h2>
+    <div class="excerpt"><em>This is a dummy post.</em></div>
+    <div class="flex post-card-meta">
+        <div>
+            <i class="fa-regular fa-calendar"></i> <time datetime="2025-01-15">15 January 2025</time>
+        </div>
+        <div data-words="5 words">
+            <i class="fa-regular fa-clock"></i> 1 minute
+        </div>
+    </div>
+</div>
+
+
 
 
 				</heading-anchors>
@@ -437,7 +499,7 @@ footer {
     ByteAether 2025
 </footer>
 
-		<!-- This page `https://byteaether.github.io/404.html` was built on 2025-01-15T12:54:55.276Z -->
+		<!-- This page `https://byteaether.github.io/` was built on 2025-01-15T12:54:55.241Z -->
 		<script type="module" src="/dist/pla52xmcCm.js"></script>
 	</body>
 </html>

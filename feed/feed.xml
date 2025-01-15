@@ -5,9 +5,17 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://byteaether.github.io/feed/feed.xml" rel="self" />
   <link href="https://byteaether.github.io/" />
-  <updated>2025-01-15T12:52:37Z</updated>
+  <updated>2025-01-15T00:00:00Z</updated>
   <id>https://byteaether.github.io/</id>
   <author>
     <name>Joonatan Uusväli</name>
   </author>
+  <entry>
+    <title>Dummy welcome post</title>
+    <link href="https://byteaether.github.io/2025/dummy-welcome-post/" />
+    <updated>2025-01-15T00:00:00Z</updated>
+    <id>https://byteaether.github.io/2025/dummy-welcome-post/</id>
+    <content type="html">&lt;p&gt;This is a dummy post.&lt;/p&gt;
+</content>
+  </entry>
 </feed>

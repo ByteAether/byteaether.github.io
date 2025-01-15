@@ -5,11 +5,11 @@
 <meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ByteAether</title>
+<title>Dummy welcome post | ByteAether</title>
 <meta name="description" content="Covering different software engineering topics.">
-<meta name="keywords" content="c#, csharp, dotnet, byteaether, blog, tech, programming">
+<meta name="keywords" content="posts, test, dummy, c#, csharp, dotnet, byteaether, blog, tech, programming">
 <meta name="author" content="Joonatan Uusväli">
-<link rel="canonical" href="https://byteaether.github.io/404.html">
+<link rel="canonical" href="https://byteaether.github.io/2025/dummy-welcome-post/">
 
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -18,13 +18,13 @@
 <link rel="manifest" href="/manifest.webmanifest">
 
 
-<meta property="og:url" content="https://byteaether.github.io/404.html">
+<meta property="og:url" content="https://byteaether.github.io/2025/dummy-welcome-post/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ByteAether">
+<meta property="og:title" content="Dummy welcome post | ByteAether">
 <meta property="og:description" content="Covering different software engineering topics.">
 
 <meta property="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ByteAether">
+<meta name="twitter:title" content="Dummy welcome post | ByteAether">
 <meta name="twitter:description" content="Covering different software engineering topics.">
 
 <meta name="robots" content="index, follow">
@@ -44,7 +44,229 @@
     gtag('config', 'G-LEY00265EM');
 </script>
 
-		<style>/* Defaults */
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+.links-nextprev {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.links-nextprev li {
+	width: 50%;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tag {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--bg-color-secondary);
+	padding: 0 0.25rem;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.post-header {
+	margin-top: 1.5rem;
+}
+[data-theme="dark"] {
+    --svg-color: #9ca3af;
+}
+[data-theme="light"] {
+    --svg-color: #777;
+}
+.social {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.social a {
+    margin: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    color: var(--svg-color) !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.social a:hover {
+    color: var(--link-color-hover) !important;
+}
+/* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
@@ -400,9 +622,75 @@ footer {
 			<main id="skip">
 				<heading-anchors>
 					
-<h1 id="content-not-found." tabindex="-1">Content not found.</h1>
-<p>Go to <a href="/">homepage</a>.</p>
+<h1>Dummy welcome post</h1>
 
+<ul class="post-metadata">
+	<div>
+		<i class="fa-regular fa-calendar"></i>
+		<time datetime="2025-01-15">15 January 2025</time>
+	</div>
+	<div data-words="5 words">
+		<i class="fa-regular fa-clock"></i>
+		1 minute
+	</div>
+	<div>
+		<i class="fa-solid fa-tags"></i>
+			<span class="tag"><a href="/tags/test/">test</a></span>
+			<span class="tag"><a href="/tags/dummy/">dummy</a></span>
+	</div>
+</ul>
+
+<p>This is a dummy post.</p>
+
+
+
+
+<div class="social">
+    <a aria-label="Copy page link to clipboard" onclick="copyUrlToClipboard()">
+        <i class="fa-solid fa-link"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://byteaether.github.io/2025/dummy-welcome-post/" target="_blank" rel="noopener" aria-label="Share on Facebook (opens new tab)">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://byteaether.github.io/2025/dummy-welcome-post/" target="_blank" rel="noopener" aria-label="Share on LinkedIn (opens new tab)">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet/?text=Dummy welcome post&url=https://byteaether.github.io/2025/dummy-welcome-post/" target="_blank" rel="noopener" aria-label="Share on Twitter (opens new tab)">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+
+    <a href="https://bsky.app/intent/compose?text=https://byteaether.github.io/2025/dummy-welcome-post/" target="_blank" rel="noopener" aria-label="Share on Bluesky (opens new tab)">
+        <i class="fa-brands fa-bluesky"></i>
+    </a>
+    <span>Share:</span>
+</div>
+
+
+	<div id="giscus-comments"></div>
+	<script>
+		// Wait for the DOM to load or ensure themeManager is available
+		document.addEventListener("DOMContentLoaded", () => {
+			const giscusContainer = document.getElementById("giscus-comments");
+
+			const script = document.createElement("script");
+			script.src = "https://giscus.app/client.js";
+			script.setAttribute("data-repo", "CLCK0622/11ty-Serene");
+			script.setAttribute("data-repo-id", "R_kgDOMgVOMw");
+			script.setAttribute("data-category-id", "DIC_kwDOMgVOM84ClgHM");
+			script.setAttribute("data-mapping", "pathname");
+			script.setAttribute("data-strict", "0");
+			script.setAttribute("data-reactions-enabled", "1");
+			script.setAttribute("data-emit-metadata", "0");
+			script.setAttribute("data-input-position", "top");
+			script.setAttribute("data-theme", themeManager.get()); // Use themeManager.get() for theme
+			script.setAttribute("data-lang", "en");
+			script.setAttribute("data-loading", "lazy");
+			script.setAttribute("crossorigin", "anonymous");
+			script.async = true;
+
+			giscusContainer.appendChild(script); // Append the script to the document
+		});
+	</script>
 
 				</heading-anchors>
 			</main>
@@ -437,7 +725,7 @@ footer {
     ByteAether 2025
 </footer>
 
-		<!-- This page `https://byteaether.github.io/404.html` was built on 2025-01-15T12:54:55.276Z -->
+		<!-- This page `https://byteaether.github.io/2025/dummy-welcome-post/` was built on 2025-01-15T12:54:55.271Z -->
 		<script type="module" src="/dist/pla52xmcCm.js"></script>
 	</body>
 </html>
