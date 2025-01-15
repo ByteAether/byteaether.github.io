@@ -1,0 +1,34 @@
+---
+eleventyNavigation:
+  key: "Archive"
+  order: 2
+---
+{%- css %}
+.archive-list .year {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.archive-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.archive-list li {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: linear-gradient(90deg, var(--bg-color-secondary) 0%, var(--bg-color) 50%, var(--bg-color-secondary) 100%);
+}
+{% endcss %}
+
+<h1>Archive</h1>
+
+<div class="archive-list">
+  <ul>
+  {% for post in collections.posts | reverse %}
+    <li>
+        <span>{{ post.date | readableDate }}</span>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>

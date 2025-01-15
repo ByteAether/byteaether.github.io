@@ -1,0 +1,68 @@
+{%- css %}
+[data-theme="dark"] {
+    --svg-color: #9ca3af;
+}
+[data-theme="light"] {
+    --svg-color: #777;
+}
+.social {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.social a {
+    margin: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    color: var(--svg-color) !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.social a:hover {
+    color: var(--link-color-hover) !important;
+}
+{%- endcss %}
+
+<div class="social">
+    <a
+        aria-label="Copy page link to clipboard"
+        onclick="copyUrlToClipboard()"
+    >
+        <i class="fa-solid fa-link"></i>
+    </a>
+    <a
+        href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absoluteUrl(metadata.url) }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="Share on Facebook (opens new tab)"
+    >
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absoluteUrl(metadata.url) }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="Share on LinkedIn (opens new tab)"
+    >
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a
+        href="https://twitter.com/intent/tweet/?text={{ title }}&url={{ page.url | absoluteUrl(metadata.url) }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="Share on Twitter (opens new tab)"
+    >
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+
+    <a
+        href="https://bsky.app/intent/compose?text={{ page.url | absoluteUrl(metadata.url) }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="Share on Bluesky (opens new tab)"
+    >
+        <i class="fa-brands fa-bluesky"></i>
+    </a>
+    <span>Share:</span>
+</div>

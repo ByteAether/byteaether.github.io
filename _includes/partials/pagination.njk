@@ -1,0 +1,88 @@
+{% css %}
+.pagination {
+    margin-top: 2rem;
+}
+.pagination ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between the pagination items */
+}
+
+.pagination li {
+    display: inline-block;
+}
+.pagination li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.pagination li:hover a {
+    color: var(--link-color-hover);
+    text-decoration: none;
+    box-shadow: 0 2px 4px 2px var(--shadow-color);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.pagination li.active a {
+    background-color: var(--bg-color-secondary);
+    color: var(--link-color);
+}
+{% endcss %}
+
+{%- set totalPages = pagination.pages|length -%}
+{%- set currentPage = pagination.pageNumber + 1 -%}
+{%- set previousHref = pagination.href.previous -%}
+{%- set nextHref = pagination.href.next -%}
+
+{% if totalPages > 1 %}
+
+    <nav class="pagination">
+        <ul>
+            {% if pagination.pageNumber > 0 %}
+                <li>
+                    {% if not pagination.href.first %}
+                        <span>&lt;&lt;</a>
+                    {% else %}
+                        <a href="{{ pagination.href.first }}">&lt;&lt;</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if not pagination.href.previous %}
+                        <span>&lt;</a>
+                    {% else %}
+                        <a href="{{ pagination.href.previous }}">&lt;</a>
+                    {% endif %}
+                </li>
+            {% endif %}
+
+            {% for pageEntry in pagination.pages %}
+                {% if loop.index0 < 6 and pagination.hrefs[loop.index0 + pagination.pageNumber] %}
+                    <li class="{% if pagination.hrefs[loop.index0 + pagination.pageNumber] === page.url %}active{% endif %}">
+                        <a href="{{ pagination.hrefs[loop.index0 + pagination.pageNumber] }}">{{ loop.index + pagination.pageNumber }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if (pagination.pageNumber + 5) < pagination.pages.length %}
+                <li>
+                    <a href="{{ pagination.href.next }}">&gt;</a>
+                </li>
+                <li>
+                    <a href="{{ pagination.href.last }}">&gt;&gt;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+{% endif %}

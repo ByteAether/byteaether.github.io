@@ -1,0 +1,109 @@
+{% css %}
+header {
+    position: sticky;
+    top: 0;
+	padding: 0.5em;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    background-color: var(--bg-color-secondary);
+    transition: background-color 0.3s, color 0.3s;
+    
+    z-index: 1000;
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+	align-items: center;
+    max-width: 70em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-right {
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+.header-right a {
+    color: var(--text-color) !important;
+    margin-left: 0.5rem;
+}
+.header-right a:hover {
+    color: var(--link-color-hover) !important;
+}
+
+.home-link {
+	font-size: 1.5em;
+	font-weight: 700;
+	margin-right: 2em;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-link .logo-img {
+    max-height: 32px;
+    width: auto;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+    align-items: center;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+    font-weight: 600;
+}
+
+.toggle-dark {
+    cursor: pointer;
+}
+{% endcss %}
+
+<header>
+    <div class="header-container">
+        <a href="/" class="home-link">
+            <img eleventy:ignore src="{{ metadata.logo }}" alt="Logo" class="logo-img" />
+            {{ metadata.title }}
+        </a>
+
+        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+        <nav>
+            <h2 class="visually-hidden">Top level navigation menu</h2>
+            <ul class="nav">
+                {%- for entry in collections.all | eleventyNavigation %}
+                    <li class="nav-item">
+                        <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
+                            {{ entry.title }}
+                        </a>
+                    </li>
+                {%- endfor %}
+            </ul>
+        </nav>
+
+        <span class="header-right">
+            <a href="https://github.com/ByteAether" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+            <a class="toggle-dark" onclick="themeManager.toggle()">
+                <i class="fa-solid fa-sun"></i>
+            </a>
+        </span>
+    </div>
+</header>

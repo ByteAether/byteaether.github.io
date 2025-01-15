@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+	<head>
+		{% include "partials/head.njk" %}
+		
+		{%- css %}{% include "public/css/index.css" %}{% endcss %}
+		
+		{%- css %}{% include "node_modules/@fortawesome/fontawesome-free/css/all.min.css" %}{% endcss %}
+		{%- js %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjs %}
+
+		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+
+		<style>{% getBundle "css" %}</style>
+		<script src="/js/main.js"></script>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		{% include "partials/header.njk" %}
+
+		<div class="content-wrapper">
+
+			<main id="skip">
+				<heading-anchors>
+					{{ content | safe }}
+				</heading-anchors>
+			</main>
+
+			<aside>
+				{% include "partials/aside.njk" %}
+			</aside>
+
+		</div>
+
+		{% include "partials/footer.njk" %}
+
+		<!-- This page `{{ page.url | absoluteUrl(metadata.url) }}` was built on {% currentBuildDate %} -->
+		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+	</body>
+</html>

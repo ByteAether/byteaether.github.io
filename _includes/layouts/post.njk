@@ -1,0 +1,107 @@
+---
+layout: layouts/base.njk
+---
+{# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
+{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+{%- css %}
+.links-nextprev {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.links-nextprev li {
+	width: 50%;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tag {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--bg-color-secondary);
+	padding: 0 0.25rem;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.post-header {
+	margin-top: 1.5rem;
+}
+
+{%- endcss %}
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+	<div>
+		<i class="fa-regular fa-calendar"></i>
+		<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+	</div>
+	<div data-words="{{ content | striptags | wordcount | formatWords }} words">
+		<i class="fa-regular fa-clock"></i>
+		{{ content | striptags | wordcount | readingTime }}
+	</div>
+	<div>
+		<i class="fa-solid fa-tags"></i>
+		{%- for tag in tags | filterTagList %}
+			{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+			<span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
+		{%- endfor %}
+	</div>
+</ul>
+
+{%- if image %}
+	<img src="{{ image }}" alt="" class="post-header" />
+{% endif %}
+
+{{ content | safe }}
+
+{% include "partials/socials.njk" %}
+
+{%- if collections.posts %}
+	{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+	{%- set nextPost = collections.posts | getNextCollectionItem %}
+	{%- if nextPost or previousPost %}
+		<ul class="links-nextprev">
+			<li class="links-nextprev-prev">{%- if previousPost %}← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</li>
+			<li class="links-nextprev-next">{%- if nextPost %}Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</li>
+		</ul>
+	{%- endif %}
+{%- endif %}
+
+{% if metadata.githubComments.repo %}
+	<div id="giscus-comments"></div>
+	<script>
+		// Wait for the DOM to load or ensure themeManager is available
+		document.addEventListener("DOMContentLoaded", () => {
+			const giscusContainer = document.getElementById("giscus-comments");
+
+			const script = document.createElement("script");
+			script.src = "https://giscus.app/client.js";
+			script.setAttribute("data-repo", "{{ metadata.githubComments.repo }}");
+			script.setAttribute("data-repo-id", "{{ metadata.githubComments.repoId }}");
+			script.setAttribute("data-category", "{{ metadata.githubComments.category }}");
+			script.setAttribute("data-category-id", "{{ metadata.githubComments.categoryId }}");
+			script.setAttribute("data-mapping", "pathname");
+			script.setAttribute("data-strict", "0");
+			script.setAttribute("data-reactions-enabled", "1");
+			script.setAttribute("data-emit-metadata", "0");
+			script.setAttribute("data-input-position", "top");
+			script.setAttribute("data-theme", themeManager.get()); // Use themeManager.get() for theme
+			script.setAttribute("data-lang", "en");
+			script.setAttribute("data-loading", "lazy");
+			script.setAttribute("crossorigin", "anonymous");
+			script.async = true;
+
+			giscusContainer.appendChild(script); // Append the script to the document
+		});
+	</script>
+{% endif %}

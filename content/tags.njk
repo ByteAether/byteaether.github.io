@@ -1,0 +1,15 @@
+---
+eleventyNavigation:
+  key: "Tags"
+  order: 4
+---
+<h1>Tags</h1>
+
+<ul>
+{% for tag in collections | getKeys | filterTagList %}
+  {% if collections[tag].length > 0 %}
+    {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    <li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a> ({{ collections[tag].length }})</li>
+  {% endif %}
+{% endfor %}
+</ul>

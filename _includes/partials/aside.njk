@@ -1,0 +1,51 @@
+{% css %}
+.aside-content {
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-left: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+}
+
+.toc-container {
+    position: sticky;
+    top: 5rem;
+}
+
+.aside-content ol {
+    list-style-type: none;    
+    padding: 0;
+    margin: 0;
+}
+
+.aside-content li {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+{% endcss %}
+
+<div class="recents-container aside-content">
+    <span>Recents</span>
+    <div>
+        <nav>
+            <ol>
+                {% for post in collections.posts.slice(-5).reverse() %}
+                    <li>
+                        <a href="{{ post.url }}">{{ post.data.title }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>
+
+{% set outline = content | toc %}
+{% if outline %}
+    <div class="toc-container aside-content">
+        <span>Table of Contents</span>
+        <div>
+            {{ outline | safe }}
+        </div>
+    </div>
+{% endif %}

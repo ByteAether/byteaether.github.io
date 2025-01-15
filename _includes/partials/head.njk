@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
+<meta name="description" content="{{ description or metadata.description }}">
+<meta name="keywords" content="{% if tags %}{{ tags | join(', ')}}, {% endif %}{{ metadata.tags | join(', ') }}" />
+<meta name="author" content="{{ metadata.author.name }}" />
+<link rel="canonical" href="{{ page.url | absoluteUrl(metadata.url) }}" />
+
+{% favicons 'public/img/icon.svg' %}
+
+<meta property="og:url" content="{{ page.url | absoluteUrl(metadata.url) }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}">
+<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}" />
+<meta name="twitter:description" content="{{ description or metadata.description }}" />
+
+<meta name="robots" content="index, follow" />
+<link rel="alternate" href="{{ 'feed/feed.xml' | absoluteUrl(metadata.url) }}" type="application/atom+xml" title="{{ metadata.title }}">
+
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="cache-control" content="max-age=86400, must-revalidate" />
+<meta name="generator" content="{{ eleventy.generator }}">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ metadata.googleAnalyticsKey }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ metadata.googleAnalyticsKey }}');
+</script>
