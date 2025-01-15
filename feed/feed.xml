@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>ByteAether</title>
   <subtitle>This is a longer description about your blog.</subtitle>
-  <link href="https://byteaether.github.io/eleventy-base-blog/feed/feed.xml" rel="self" />
-  <link href="https://byteaether.github.io/eleventy-base-blog/" />
+  <link href="https://byteaether.github.io/feed/feed.xml" rel="self" />
+  <link href="https://byteaether.github.io/" />
   <updated>2025-01-06T00:00:00Z</updated>
-  <id>https://byteaether.github.io/eleventy-base-blog/</id>
+  <id>https://byteaether.github.io/</id>
   <author>
     <name>Joonatan Uusväli</name>
   </author>
   <entry>
     <title>Understanding UUIDs, ULIDs, and Database Performance: A Deep Dive into Optimizing Inserts and Indexes</title>
-    <link href="https://byteaether.github.io/eleventy-base-blog/2025/understanding-uuids-ulids-and-database-performance-a-deep-dive-into-optimizing-inserts-and-indexes/" />
+    <link href="https://byteaether.github.io/2025/understanding-uuids-ulids-and-database-performance-a-deep-dive-into-optimizing-inserts-and-indexes/" />
     <updated>2025-01-06T00:00:00Z</updated>
-    <id>https://byteaether.github.io/eleventy-base-blog/2025/understanding-uuids-ulids-and-database-performance-a-deep-dive-into-optimizing-inserts-and-indexes/</id>
+    <id>https://byteaether.github.io/2025/understanding-uuids-ulids-and-database-performance-a-deep-dive-into-optimizing-inserts-and-indexes/</id>
     <content type="html">&lt;p&gt;In modern systems, especially in the context of databases, generating unique identifiers for entities is a fundamental operation. These identifiers, also called UUIDs (Universally Unique Identifiers), are key to ensuring that each record has a unique and distinguishable key. However, the choice of the identifier and how it is generated can have a profound impact on database performance. Specifically, the use of UUIDv4 (a random UUID) versus ULID (Universally Lexicographically Sortable Identifier) can drastically alter the efficiency of insert operations and index performance in relational databases.&lt;/p&gt;
 &lt;p&gt;In this article, we’ll dive into the performance implications of UUIDs, particularly focusing on UUIDv4, which is the most widely used version, and explore how the use of ULIDs can optimize database operations, particularly in systems that need high-throughput inserts and minimal index rebalancing.&lt;/p&gt;
 &lt;h2 id=&quot;the-impact-of-random-uuids-(uuidv4)-on-database-indexes&quot; tabindex=&quot;-1&quot;&gt;The Impact of Random UUIDs (UUIDv4) on Database Indexes&lt;/h2&gt;
