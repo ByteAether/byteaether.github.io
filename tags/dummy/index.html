@@ -33,6 +33,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="cache-control" content="max-age=86400, must-revalidate">
+<meta name="generator" content="Eleventy v3.0.0">
 
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LEY00265EM"></script>
@@ -336,15 +337,32 @@ header:after {
     margin-top: 1rem;
 }
 footer {
-    display: flex;
-	gap: 1em .5em;
-	flex-wrap: wrap;
-	align-items: center;
-	padding: 1em;
+    position: sticky;
+    bottom: 0;
+	padding: 0.5em;
     background-color: var(--bg-color-secondary);
     transition: background-color 0.3s, color 0.3s;
     box-shadow: 0 2px 4px var(--shadow-color);
     z-index: 1000;
+}
+
+.footer-container {
+    display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+    gap: 0 1rem;
+    
+    max-width: 70em;
+    margin-left: auto;
+    margin-right: auto;
+    
+    font-weight: bold;
+}
+
+.footer-container a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
 }</style>
 		<script src="/js/main.js"></script>
 	</head>
@@ -457,10 +475,13 @@ footer {
 		
 
 <footer>
-    ByteAether 2025
+    <div class="footer-container">
+        <div><a href="https://github.com/ByteAether" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+        <div>ByteAether 2025</div>
+    </div>
 </footer>
 
-		<!-- This page `https://byteaether.github.io/tags/dummy/` was built on 2025-01-15T13:30:31.220Z -->
+		<!-- This page `https://byteaether.github.io/tags/dummy/` was built on 2025-01-15T13:44:08.831Z -->
 		<script type="module" src="/dist/pla52xmcCm.js"></script>
 	</body>
 </html>
