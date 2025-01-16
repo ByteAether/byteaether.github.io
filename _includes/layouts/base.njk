@@ -34,7 +34,7 @@
 
 		{% include "partials/footer.njk" %}
 
-		<!-- This page `{{ page.url | absoluteUrl(metadata.url) }}` was built on {% currentBuildDate %} -->
+		<!-- This page `{{ page.url | absoluteUrl(metadata.url) }}` was built on {{ renderDate | isoDateTime }} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</body>
 </html>

@@ -8,16 +8,46 @@
 <meta name="author" content="{{ metadata.author.name }}" />
 <link rel="canonical" href="{{ page.url | absoluteUrl(metadata.url) }}" />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ metadata.url }}"
+  },
+  "headline": "{{ title or metadata.title }}",
+  "description": "{{ description or metadata.description }}",
+  {% if image %}"image": "{{ page.url | absoluteUrl(metadata.url) }}{{ image }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "{{ metadata.author.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ metadata.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ metadata.logo | absoluteUrl(metadata.url) }}"
+    }
+  },
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ renderDate | isoDate }}"
+}
+</script>
+
 {% favicons 'public/img/icon.svg' %}
 
 <meta property="og:url" content="{{ page.url | absoluteUrl(metadata.url) }}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}">
 <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
+{% if image %}<meta property="og:image" content="{{ page.url | absoluteUrl(metadata.url) }}{{ image }}" />{% endif %}
 
 <meta property="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}" />
 <meta name="twitter:description" content="{{ description or metadata.description }}" />
+{% if image %}<meta name="twitter:image" content="{{ page.url | absoluteUrl(metadata.url) }}{{ image }}" />{% endif %}
 
 <meta name="robots" content="index, follow" />
 <link rel="alternate" href="{{ 'feed/feed.xml' | absoluteUrl(metadata.url) }}" type="application/atom+xml" title="{{ metadata.title }}">

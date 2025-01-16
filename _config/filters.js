@@ -7,9 +7,14 @@ export default function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
 	});
 
-	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+	eleventyConfig.addFilter("isoDate", (dateObj) => {
 		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat('yyyy-LL-dd');
+	});
+
+	eleventyConfig.addFilter("isoDateTime", (dateObj) => {
+		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat('yyyy-LL-dd HH:ii:ss');
 	});
 
 	// Get the first `n` elements of a collection.
@@ -25,8 +30,11 @@ export default function(eleventyConfig) {
 	});
 
 	// Return the smallest number argument
-	eleventyConfig.addFilter("min", (...numbers) => {
+	eleventyConfig.addFilter("min", (numbers) => {
 		return Math.min.apply(null, numbers);
+	});
+	eleventyConfig.addFilter("max", (numbers) => {
+		return Math.max.apply(null, numbers);
 	});
 
 	// Return the keys used in an object

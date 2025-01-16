@@ -38,31 +38,33 @@ layout: layouts/base.njk
 }
 
 {%- endcss %}
-<h1>{{ title }}</h1>
+<article>
+	<h1>{{ title }}</h1>
 
-<ul class="post-metadata">
-	<div>
-		<i class="fa-regular fa-calendar"></i>
-		<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-	</div>
-	<div data-words="{{ content | striptags | wordcount | formatWords }} words">
-		<i class="fa-regular fa-clock"></i>
-		{{ content | striptags | wordcount | readingTime }}
-	</div>
-	<div>
-		<i class="fa-solid fa-tags"></i>
-		{%- for tag in tags | filterTagList %}
-			{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-			<span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
-		{%- endfor %}
-	</div>
-</ul>
+	<ul class="post-metadata">
+		<div>
+			<i class="fa-regular fa-calendar"></i>
+			<time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+		</div>
+		<div data-words="{{ content | striptags | wordcount | formatWords }} words">
+			<i class="fa-regular fa-clock"></i>
+			{{ content | striptags | wordcount | readingTime }}
+		</div>
+		<div>
+			<i class="fa-solid fa-tags"></i>
+			{%- for tag in tags | filterTagList %}
+				{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+				<span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
+			{%- endfor %}
+		</div>
+	</ul>
 
-{%- if image %}
-	<img src="{{ image }}" alt="" class="post-header" />
-{% endif %}
+	{%- if image %}
+		<img src="{{ image }}" alt="" class="post-header" />
+	{% endif %}
 
-{{ content | safe }}
+	{{ content | safe }}
+</article>
 
 {% include "partials/socials.njk" %}
 

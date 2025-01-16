@@ -4,17 +4,25 @@ eleventyNavigation:
   order: 1
 pagination:
   data: collections.posts
-  size: 4
+  size: 3
   reverse: true
 permalink: "{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}{% endif %}/"
 canonical: /
 ---
-<h1>Welcome to ByteAether!</h1>
-<p>Welcome to ByteAether, a space where technology meets curiosity. Whether you're here to explore the latest in .NET and C# development, deep-dive into the technical nuances of software engineering, or keep up with the newest releases from our open-source projects, you've come to the right place. ByteAether is more than just a blog - it's a gateway to tools, insights, and discussions for developers of all levels.</p>
+{% if pagination.pageNumber == 0 %}
+  <h1>Welcome to ByteAether!</h1>
+  <p>Welcome to ByteAether, a space where technology meets curiosity. Whether you're here to explore the latest in .NET and C# development, deep-dive into the technical nuances of software engineering, or keep up with the newest releases from our open-source projects, you've come to the right place. ByteAether is more than just a blog - it's a gateway to tools, insights, and discussions for developers of all levels.</p>
 
-<p>Here, you'll find a mix of release announcements for our NuGet packages, technical explorations of problem-solving strategies, and practical tips to enhance your coding workflow. If you're curious about the person behind ByteAether, feel free to visit the <a href="/about">About Me</a> section, where I share more about my journey, passions, and the work I do. Thanks for stopping by - happy reading and coding!</p>
+  <p>Here, you'll find a mix of release announcements for our NuGet packages, technical explorations of problem-solving strategies, and practical tips to enhance your coding workflow. If you're curious about the person behind ByteAether, feel free to visit the <a href="/about">About Me</a> section, where I share more about my journey, passions, and the work I do. Thanks for stopping by - happy reading and coding!</p>
+{% endif %}
 
-<h1>{% if pagination.pageNumber == 0 %}Latest {% endif %}{{ pagination.items.count }} Post{% if pagination.items.count != 1 %}s{% endif %}</h1>
+<h1>
+{% if pagination.pageNumber == 0 %}
+  Latest {{ pagination.items.length }} Post{% if pagination.items.length != 1 %}s{% endif %}
+{% else %}
+  Post{% if pagination.items.length != 1 %}s{% endif %} {{ pagination.size * pagination.pageNumber + 1 }}{% if pagination.items.length != 1 %} - {{ pagination.size * (pagination.pageNumber + 1) }}{% endif %}
+{% endif %}
+</h1>
 
 {% for post in pagination.items %}
 	{% include "partials/post-card.njk" %}

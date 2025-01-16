@@ -40,13 +40,9 @@
 }
 {% endcss %}
 
-{%- set totalPages = pagination.pages|length -%}
-{%- set currentPage = pagination.pageNumber + 1 -%}
-{%- set previousHref = pagination.href.previous -%}
-{%- set nextHref = pagination.href.next -%}
-
-{% if totalPages > 1 %}
-
+{% if pagination.pages.length > 1 %}
+    {% set pageIndexStart = [pagination.pageNumber - 2, 0] | max %}
+    {% set pageIndexEnd = [pagination.pageNumber + 2, pagination.pages.length - 1] | min %}
     <nav class="pagination">
         <ul>
             {% if pagination.pageNumber > 0 %}
@@ -66,15 +62,13 @@
                 </li>
             {% endif %}
 
-            {% for pageEntry in pagination.pages %}
-                {% if loop.index0 < 6 and pagination.hrefs[loop.index0 + pagination.pageNumber] %}
-                    <li class="{% if pagination.hrefs[loop.index0 + pagination.pageNumber] === page.url %}active{% endif %}">
-                        <a href="{{ pagination.hrefs[loop.index0 + pagination.pageNumber] }}">{{ loop.index + pagination.pageNumber }}</a>
-                    </li>
-                {% endif %}
+            {% for i in range(pageIndexStart, pageIndexEnd + 1) %}
+                <li class="{% if i == pagination.pageNumber %}active{% endif %}">
+                    <a href="{{ pagination.hrefs[i] }}">{{ i + 1 }}</a>
+                </li>
             {% endfor %}
 
-            {% if (pagination.pageNumber + 5) < pagination.pages.length %}
+            {% if (pagination.pageNumber + 1) < pagination.pages.length %}
                 <li>
                     <a href="{{ pagination.href.next }}">&gt;</a>
                 </li>

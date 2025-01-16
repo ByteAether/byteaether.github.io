@@ -21,6 +21,8 @@ export default async function(eleventyConfig) {
 		}
 	});
 
+	eleventyConfig.addGlobalData("renderDate", new Date());
+
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
