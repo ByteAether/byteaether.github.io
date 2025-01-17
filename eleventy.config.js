@@ -27,7 +27,7 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-			"./public": "/"
+			"./public": "/",
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
@@ -124,7 +124,7 @@ export default async function(eleventyConfig) {
 	// to emulate the file copy on the dev server. Learn more:
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
-	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 };
 
 export const config = {

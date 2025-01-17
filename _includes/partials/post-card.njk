@@ -1,20 +1,20 @@
 {% css %}
-.post-card-meta
+.post-card
 {
-    margin-top: 0.5rem;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-card h2 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 {% endcss %}
 
 <div class="post-card">
     <h2><a href="{{ post.url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a></h2>
     <div class="excerpt"><em>{{ post | excerpt | truncate(500) }}</em></div>
-    <div class="flex post-card-meta">
-        <div>
-            <i class="fa-regular fa-calendar"></i> <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
-        </div>
-        <div data-words="{{ post.templateContent | striptags | wordcount | formatWords }} words">
-            <i class="fa-regular fa-clock"></i> {{ post.templateContent | striptags | wordcount | readingTime }}
-        </div>
-    </div>
+    {% include "./post-meta.njk" %}
 </div>

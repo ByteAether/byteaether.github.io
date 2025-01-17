@@ -17,21 +17,6 @@ layout: layouts/base.njk
 .links-nextprev-next {
 	text-align: right;
 }
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 2em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.tag {
-	border: 1px solid var(--border-color);
-	border-radius: 4px;
-	background-color: var(--bg-color-secondary);
-	padding: 0 0.25rem;
-	transition: background-color 0.3s, border-color 0.3s;
-}
 
 .post-header {
 	margin-top: 1.5rem;
@@ -41,23 +26,7 @@ layout: layouts/base.njk
 <article>
 	<h1>{{ title }}</h1>
 
-	<ul class="post-metadata">
-		<div>
-			<i class="fa-regular fa-calendar"></i>
-			<time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
-		</div>
-		<div data-words="{{ content | striptags | wordcount | formatWords }} words">
-			<i class="fa-regular fa-clock"></i>
-			{{ content | striptags | wordcount | readingTime }}
-		</div>
-		<div>
-			<i class="fa-solid fa-tags"></i>
-			{%- for tag in tags | filterTagList %}
-				{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-				<span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
-			{%- endfor %}
-		</div>
-	</ul>
+	{% include "./../partials/post-meta.njk" %}
 
 	{%- if image %}
 		<img src="{{ image }}" alt="" class="post-header" />

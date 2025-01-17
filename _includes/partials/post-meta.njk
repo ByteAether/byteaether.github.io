@@ -1,0 +1,44 @@
+{% css %}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata .tag {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--bg-color-secondary);
+	padding: 0 0.25rem;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.post-metadata svg {
+    margin-right: 0.25rem;
+}
+{% endcss %}
+
+{% set post = collections.posts | getCollectionItem %}
+
+<div class="post-metadata">
+    <div>
+        <i class="fa-regular fa-calendar"></i>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    </div>
+    <div data-words="{{ post.templateContent | striptags | wordcount | formatWords }} words">
+        <i class="fa-regular fa-clock"></i>
+        {{ post.templateContent | striptags | wordcount | readingTime }}
+    </div>
+    <div>
+        {% set tags = post.data.tags | filterTagList %}
+        {% if tags.length > 0 %}
+            <i class="fa-solid fa-tags"></i>
+            {%- for tag in tags %}
+                {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+                <span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
+            {%- endfor %}
+        {% endif %}
+    </div>
+</div>
