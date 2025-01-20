@@ -113,11 +113,28 @@ a[href]:hover,
 a[href]:active {
 	color: var(--link-color-hover);
 	text-decoration: underline;
+	transition: color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
 	transition: color 0.3s;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+h4 {
+	font-size: 1rem;
 }
 
 .content-wrapper {
@@ -173,5 +190,26 @@ code:not([class*="language-"]) {
 	overflow-x: auto;
 	background-color: var(--bg-color-secondary);
 	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+table {
+	border: 1px solid var(--border-color);
+	transition: border-color 0.3s;
+}
+
+table td, table th {
+	padding: 0.25rem;
+}
+
+table th {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	background-color: var(--bg-color-secondary);
+	transition: background-color 0.3s;
+}
+
+table tr:nth-child(even) {
+	background-color: rgba(127, 127, 127, 0.1);
 	transition: background-color 0.3s;
 }
