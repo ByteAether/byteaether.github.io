@@ -35,7 +35,7 @@
     }
   },
   "datePublished": "Invalid DateTime",
-  "dateModified": "2025-01-17"
+  "dateModified": "2025-01-21"
 }
 </script>
 
@@ -259,11 +259,28 @@ a[href]:hover,
 a[href]:active {
 	color: var(--link-color-hover);
 	text-decoration: underline;
+	transition: color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
 	transition: color 0.3s;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+h4 {
+	font-size: 1rem;
 }
 
 .content-wrapper {
@@ -319,6 +336,27 @@ code:not([class*="language-"]) {
 	overflow-x: auto;
 	background-color: var(--bg-color-secondary);
 	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+table {
+	border: 1px solid var(--border-color);
+	transition: border-color 0.3s;
+}
+
+table td, table th {
+	padding: 0.25rem;
+}
+
+table th {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	background-color: var(--bg-color-secondary);
+	transition: background-color 0.3s;
+}
+
+table tr:nth-child(even) {
+	background-color: rgba(127, 127, 127, 0.1);
 	transition: background-color 0.3s;
 }
 /*!
@@ -532,8 +570,8 @@ footer {
 	
 
 <div class="post-card">
-    <h2><a href="/2025/dummy-welcome-post/">Dummy welcome post</a></h2>
-    <div class="excerpt"><em>This is a dummy post.</em></div>
+    <h2><a href="/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/">Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</a></h2>
+    <div class="excerpt"><em>Frustrated with GUIDs that aren’t sortable or human-readable? Meet ByteAether.Ulid - a ULID library designed to simplify your .NET development.</em></div>
     
 
 
@@ -541,18 +579,21 @@ footer {
 <div class="post-metadata">
     <div>
         <i class="fa-regular fa-calendar"></i>
-        <time datetime="2025-01-15">15 January 2025</time>
+        <time datetime="2025-01-21">21 January 2025</time>
     </div>
-    <div data-words="5 words">
+    <div data-words="533 words">
         <i class="fa-regular fa-clock"></i>
-        1 minute
+        3 minutes
     </div>
     <div>
         
         
             <i class="fa-solid fa-tags"></i>
-                <span class="tag"><a href="/tags/test/">test</a></span>
-                <span class="tag"><a href="/tags/dummy/">dummy</a></span>
+                <span class="tag"><a href="/tags/ulid/">ulid</a></span>
+                <span class="tag"><a href="/tags/uuid/">uuid</a></span>
+                <span class="tag"><a href="/tags/guid/">guid</a></span>
+                <span class="tag"><a href="/tags/unique-identifier/">unique identifier</a></span>
+                <span class="tag"><a href="/tags/id/">id</a></span>
         
     </div>
 </div>
@@ -576,7 +617,7 @@ footer {
             <ol>
                 
                     <li>
-                        <a href="/2025/dummy-welcome-post/">Dummy welcome post</a>
+                        <a href="/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/">Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</a>
                     </li>
                 
             </ol>
@@ -599,7 +640,7 @@ footer {
     </div>
 </footer>
 
-		<!-- This page `https://byteaether.github.io/` was built on 2025-01-17 10:25:50 -->
+		<!-- This page `https://byteaether.github.io/` was built on 2025-01-21 11:25:00 -->
 		<script type="module" src="/dist/pla52xmcCm.js"></script>
 	</body>
 </html>

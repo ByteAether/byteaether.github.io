@@ -35,7 +35,7 @@
     }
   },
   "datePublished": "Invalid DateTime",
-  "dateModified": "2025-01-17"
+  "dateModified": "2025-01-21"
 }
 </script>
 
@@ -204,11 +204,28 @@ a[href]:hover,
 a[href]:active {
 	color: var(--link-color-hover);
 	text-decoration: underline;
+	transition: color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
 	transition: color 0.3s;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+h4 {
+	font-size: 1rem;
 }
 
 .content-wrapper {
@@ -264,6 +281,27 @@ code:not([class*="language-"]) {
 	overflow-x: auto;
 	background-color: var(--bg-color-secondary);
 	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+table {
+	border: 1px solid var(--border-color);
+	transition: border-color 0.3s;
+}
+
+table td, table th {
+	padding: 0.25rem;
+}
+
+table th {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	background-color: var(--bg-color-secondary);
+	transition: background-color 0.3s;
+}
+
+table tr:nth-child(even) {
+	background-color: rgba(127, 127, 127, 0.1);
 	transition: background-color 0.3s;
 }
 /*!
@@ -468,8 +506,8 @@ footer {
   <ul>
   
     <li>
-        <span>15 January 2025</span>
-        <a href="/2025/dummy-welcome-post/">Dummy welcome post</a>
+        <span>21 January 2025</span>
+        <a href="/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/">Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</a>
     </li>
   
   </ul>
@@ -488,7 +526,7 @@ footer {
             <ol>
                 
                     <li>
-                        <a href="/2025/dummy-welcome-post/">Dummy welcome post</a>
+                        <a href="/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/">Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</a>
                     </li>
                 
             </ol>
@@ -511,7 +549,7 @@ footer {
     </div>
 </footer>
 
-		<!-- This page `https://byteaether.github.io/blog/` was built on 2025-01-17 10:25:50 -->
+		<!-- This page `https://byteaether.github.io/blog/` was built on 2025-01-21 11:25:00 -->
 		<script type="module" src="/dist/pla52xmcCm.js"></script>
 	</body>
 </html>

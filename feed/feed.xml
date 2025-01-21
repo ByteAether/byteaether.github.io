@@ -5,17 +5,162 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://byteaether.github.io/feed/feed.xml" rel="self" />
   <link href="https://byteaether.github.io/" />
-  <updated>2025-01-15T00:00:00Z</updated>
+  <updated>2025-01-21T00:00:00Z</updated>
   <id>https://byteaether.github.io/</id>
   <author>
     <name>Joonatan Uusväli</name>
   </author>
   <entry>
-    <title>Dummy welcome post</title>
-    <link href="https://byteaether.github.io/2025/dummy-welcome-post/" />
-    <updated>2025-01-15T00:00:00Z</updated>
-    <id>https://byteaether.github.io/2025/dummy-welcome-post/</id>
-    <content type="html">&lt;p&gt;This is a dummy post.&lt;/p&gt;
+    <title>Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</title>
+    <link href="https://byteaether.github.io/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/" />
+    <updated>2025-01-21T00:00:00Z</updated>
+    <id>https://byteaether.github.io/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/</id>
+    <content type="html">&lt;p&gt;Frustrated with GUIDs that aren’t sortable or human-readable? Meet ByteAether.Ulid - a ULID library designed to simplify your .NET development.&lt;/p&gt;
+&lt;p&gt;We’re excited to introduce &lt;a href=&quot;https://github.com/ByteAether/Ulid&quot;&gt;ByteAether.Ulid v1.0.0&lt;/a&gt;, a high-performance .NET library for generating and working with &lt;a href=&quot;https://github.com/ulid/spec&quot;&gt;ULIDs (Universally Unique Lexicographically Sortable Identifiers)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For developers managing distributed systems or working with time-sensitive data, ULIDs offer the perfect blend of uniqueness, readability, and sortability. ByteAether.Ulid takes it further by delivering exceptional performance, seamless integration with modern .NET projects, and comprehensive reliability.&lt;/p&gt;
+&lt;h2 id=&quot;why-ulids%2C-and-why-byteaether.ulid%3F&quot; tabindex=&quot;-1&quot;&gt;Why ULIDs, and Why ByteAether.Ulid?&lt;/h2&gt;
+&lt;p&gt;ULIDs provide unique identifiers that are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Globally Unique:&lt;/strong&gt; No risk of collisions, even in distributed systems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sortable:&lt;/strong&gt; Lexicographically ordered, making them ideal for time-based sorting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Human-Readable:&lt;/strong&gt; Unlike GUIDs, ULIDs use a base32 encoding that’s easy to interpret.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ByteAether.Ulid goes beyond standard implementations:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;GUIDs&lt;/th&gt;
+&lt;th&gt;Integer IDs&lt;/th&gt;
+&lt;th&gt;ULIDs&lt;/th&gt;
+&lt;th&gt;ByteAether.Ulid Enhancements&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Global Uniqueness&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;❌ No&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time-Based Sortability&lt;/td&gt;
+&lt;td&gt;❌ No&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Human-Readable Format&lt;/td&gt;
+&lt;td&gt;❌ No&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;td&gt;✅ Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Overflow Handling&lt;/td&gt;
+&lt;td&gt;❌ N/A&lt;/td&gt;
+&lt;td&gt;❌ N/A&lt;/td&gt;
+&lt;td&gt;❌ Sometimes&lt;/td&gt;
+&lt;td&gt;✅ Graceful &amp;amp; Reliable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;ByteAether.Ulid fully adheres to the &lt;a href=&quot;https://github.com/ulid/spec&quot;&gt;ULID specification&lt;/a&gt; while addressing common pitfalls, such as random-part overflow, ensuring a truly error-free experience.&lt;/p&gt;
+&lt;h2 id=&quot;key-features-of-byteaether.ulid&quot; tabindex=&quot;-1&quot;&gt;Key Features of ByteAether.Ulid&lt;/h2&gt;
+&lt;h3 id=&quot;1.-error-free-ulid-generation&quot; tabindex=&quot;-1&quot;&gt;1. Error-Free ULID Generation&lt;/h3&gt;
+&lt;p&gt;Handles edge cases gracefully, like random-part overflow, by incrementing timestamps to maintain monotonicity without errors.&lt;/p&gt;
+&lt;h3 id=&quot;2.-high-performance-design&quot; tabindex=&quot;-1&quot;&gt;2. High-Performance Design&lt;/h3&gt;
+&lt;p&gt;ByteAether.Ulid is optimized for speed and low memory usage, outperforming other libraries like NetUlid, NUlid, and Cysharp’s Ulid.&lt;/p&gt;
+&lt;h3 id=&quot;3.-seamless-.net-integration&quot; tabindex=&quot;-1&quot;&gt;3. Seamless .NET Integration&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Supports .NET versions from .NET Standard 2.0 to .NET 9.0.&lt;/li&gt;
+&lt;li&gt;Native support for ASP.NET Core route parameters.&lt;/li&gt;
+&lt;li&gt;Fully compatible with &lt;code&gt;System.Text.Json&lt;/code&gt; serialization and deserialization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;4.-versatile-conversion-methods&quot; tabindex=&quot;-1&quot;&gt;4. Versatile Conversion Methods&lt;/h3&gt;
+&lt;p&gt;Effortlessly convert ULIDs to and from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Byte arrays&lt;/li&gt;
+&lt;li&gt;GUIDs&lt;/li&gt;
+&lt;li&gt;Strings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;getting-started&quot; tabindex=&quot;-1&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;h3 id=&quot;installation&quot; tabindex=&quot;-1&quot;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Getting started is as simple as installing the NuGet package:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dotnet add package ByteAether.Ulid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Run &lt;code&gt;dotnet list package&lt;/code&gt; to verify the installation. Visit the &lt;a href=&quot;https://www.nuget.org/packages/ByteAether.Ulid/&quot;&gt;NuGet page&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;h3 id=&quot;usage&quot; tabindex=&quot;-1&quot;&gt;Usage&lt;/h3&gt;
+&lt;p&gt;Here’s how simple it is to generate and use ULIDs with ByteAether.Ulid:&lt;/p&gt;
+&lt;pre class=&quot;language-csharp&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-csharp&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;token namespace&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Program&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token return-type class-name&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Create a new ULID&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt;&lt;/span&gt; ulid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Ulid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;New&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;// Convert to string and back&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;string&lt;/span&gt;&lt;/span&gt; ulidString &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ulid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt;&lt;/span&gt; ulidFromString &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Ulid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ulidString&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        Console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token interpolation-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;$&quot;Generated ULID: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token expression language-csharp&quot;&gt;ulid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For detailed usage instructions and a complete API reference, check out the &lt;a href=&quot;https://github.com/ByteAether/Ulid&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;performance-highlights&quot; tabindex=&quot;-1&quot;&gt;Performance Highlights&lt;/h2&gt;
+&lt;p&gt;ByteAether.Ulid outpaces competitors while maintaining strict adherence to the ULID specification.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Library&lt;/th&gt;
+&lt;th&gt;Generation Speed&lt;/th&gt;
+&lt;th&gt;Compliance&lt;/th&gt;
+&lt;th&gt;Error Handling&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ByteAether.Ulid&lt;/td&gt;
+&lt;td&gt;✅ Fastest&lt;/td&gt;
+&lt;td&gt;✅ Full&lt;/td&gt;
+&lt;td&gt;✅ Graceful&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NetUlid&lt;/td&gt;
+&lt;td&gt;⚠️ Slower&lt;/td&gt;
+&lt;td&gt;✅ Full&lt;/td&gt;
+&lt;td&gt;⚠️ Limited&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NUlid&lt;/td&gt;
+&lt;td&gt;⚠️ Slower&lt;/td&gt;
+&lt;td&gt;✅ Full&lt;/td&gt;
+&lt;td&gt;⚠️ Limited&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cysharp.Ulid&lt;/td&gt;
+&lt;td&gt;⚠️ Slower&lt;/td&gt;
+&lt;td&gt;❌ Incomplete&lt;/td&gt;
+&lt;td&gt;⚠️ Limited&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For a full breakdown of benchmarks and testing methodology, visit our &lt;a href=&quot;https://github.com/ByteAether/Ulid&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;open-source-and-contributions&quot; tabindex=&quot;-1&quot;&gt;Open Source and Contributions&lt;/h2&gt;
+&lt;p&gt;ByteAether.Ulid is fully open-source and licensed under the MIT License. Contributions are welcome! Whether you want to report bugs, suggest features, or submit a pull request, we’d love your input.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ByteAether/Ulid/issues&quot;&gt;👉 Submit an Issue&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://github.com/ByteAether/Ulid/pulls&quot;&gt;👉 Contribute Code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what%E2%80%99s-next%3F&quot; tabindex=&quot;-1&quot;&gt;What’s Next?&lt;/h2&gt;
+&lt;p&gt;Stay tuned for deep dives into:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why ULIDs are a game-changer for modern databases.&lt;/li&gt;
+&lt;li&gt;Optimizing performance in distributed systems with ULIDs.&lt;/li&gt;
+&lt;li&gt;Real-world use cases for ULIDs in .NET applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Start simplifying your .NET projects today. Install &lt;a href=&quot;https://github.com/ByteAether/Ulid&quot;&gt;ByteAether.Ulid&lt;/a&gt; and experience the difference!&lt;/p&gt;
 </content>
   </entry>
 </feed>
