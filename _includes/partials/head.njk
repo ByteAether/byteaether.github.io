@@ -18,7 +18,7 @@
   },
   "headline": "{{ title or metadata.title }}",
   "description": "{{ description or metadata.description }}",
-  {% if image %}"image": "{{ page.url | absoluteUrl(metadata.url) }}{{ image }}",{% endif %}
+  {% if image %}"image": "{{ image | contentImgUrlShortcode | absoluteUrl(metadata.url) }}",{% endif %}
   "author": {
     "@type": "Person",
     "name": "{{ metadata.author.name }}"
@@ -42,12 +42,20 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}">
 <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
-{% if image %}<meta property="og:image" content="{{ page.url | absoluteUrl(metadata.url) }}{{ image }}" />{% endif %}
+{% if image %}
+  <meta property="og:image" content="{{ image | contentImgUrlShortcode | absoluteUrl(metadata.url) }}" />
+{% else %}
+  <meta property="og:image" content="{{ 'icon-512.png' | absoluteUrl(metadata.url) }}" />
+{% endif %}
 
 <meta property="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ metadata.title }}" />
 <meta name="twitter:description" content="{{ description or metadata.description }}" />
-{% if image %}<meta name="twitter:image" content="{{ page.url | absoluteUrl(metadata.url) }}{{ image }}" />{% endif %}
+{% if image %}
+  <meta name="twitter:image" content="{{ image | contentImgUrlShortcode | absoluteUrl(metadata.url) }}" />
+{% else %}
+  <meta name="twitter:image" content="{{ 'icon-512.png' | absoluteUrl(metadata.url) }}" />
+{% endif %}
 
 <meta name="robots" content="index, follow" />
 <link rel="alternate" href="{{ 'feed/feed.xml' | absoluteUrl(metadata.url) }}" type="application/atom+xml" title="{{ metadata.title }}">

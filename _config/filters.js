@@ -1,5 +1,7 @@
 import { DateTime } from "luxon";
 import striptags from "striptags";
+import Image from "@11ty/eleventy-img";
+import path from 'node:path';
 
 export default function(eleventyConfig) {
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
@@ -70,6 +72,7 @@ export default function(eleventyConfig) {
 		extractExcerpt(post)
 	);
 
+	eleventyConfig.addFilter("contentImgUrlShortcode", contentImgUrlShortcode);
 };
 
 // Taken from here => https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/
@@ -84,4 +87,23 @@ function extractExcerpt(article) {
     const content = article.templateContent;
 
 	return striptags(content.slice(0, content.indexOf("\n")));
+}
+
+async function contentImgUrlShortcode(src) {
+	const inputDir = path.dirname(this.page.inputPath);
+	const imagePath = path.resolve(inputDir, src);
+	const outputDir = path.dirname(this.page.outputPath);
+	const urlPath = this.page.url;
+
+	const stats = await Image(imagePath, {
+		widths: [1200], // Width for Open Graph image
+		formats: ["png"],
+		outputDir: outputDir, // Output directory
+		urlPath: urlPath, // Public URL path
+		filenameFormat: function (hash, src, width, format) {
+			return `${hash}-${width}.${format}`;
+		}
+	});
+
+	return stats.png[0].url; // Return the URL of the processed image
 }
