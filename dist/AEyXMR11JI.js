@@ -53,6 +53,7 @@ class HeadingAnchors extends HTMLElement {
 }
 .${HeadingAnchors.classes.anchor},
 .${HeadingAnchors.classes.placeholder} {
+	display: inline-block;
 	padding: 0 .25em;
 
 	/* Disable selection of visually hidden label */
