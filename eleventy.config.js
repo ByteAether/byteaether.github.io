@@ -69,7 +69,9 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
-	eleventyConfig.addPlugin(faviconsPlugin);
+	eleventyConfig.addPlugin(faviconsPlugin, {
+		'manifestData': { 'name': 'ByteAether' }
+	});
 
 	eleventyConfig.addPlugin(feedPlugin, {
 		type: "atom", // or "rss", "json"
