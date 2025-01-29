@@ -89,21 +89,33 @@ function extractExcerpt(article) {
 	return striptags(content.slice(0, content.indexOf("\n")));
 }
 
-async function contentImgUrlShortcode(src) {
+async function contentImgUrlShortcode(src, options = {}) {
 	const inputDir = path.dirname(this.page.inputPath);
 	const imagePath = path.resolve(inputDir, src);
 	const outputDir = path.dirname(this.page.outputPath);
 	const urlPath = this.page.url;
 
-	const stats = await Image(imagePath, {
-		widths: [1200], // Width for Open Graph image
-		formats: ["png"],
+	const imageOptions = {
+		widths: [options.width || null],
+		formats: [options.format || "png"],
 		outputDir: outputDir, // Output directory
 		urlPath: urlPath, // Public URL path
 		filenameFormat: function (hash, src, width, format) {
 			return `${hash}-${width}.${format}`;
+		},
+		cacheOptions: {
+		  duration: "1w"
 		}
-	});
+	};
 
-	return stats.png[0].url; // Return the URL of the processed image
+	const img = await Image(imagePath, imageOptions);
+
+	// Get the generated image URL
+    const formatData = img[imageOptions.formats[0]];
+    if (!formatData || !formatData[0]) {
+      throw new Error(`Image processing failed for ${src}`);
+    }
+    const absoluteUrl = formatData[0].url;
+
+	return absoluteUrl; // Return the URL of the processed image
 }
