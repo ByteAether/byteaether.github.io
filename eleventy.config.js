@@ -8,6 +8,7 @@ import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import pluginTOC from "@uncenter/eleventy-plugin-toc";
 import faviconsPlugin from "eleventy-plugin-gen-favicons";
+import path from 'node:path';
 
 import pluginFilters from "./_config/filters.js";
 import pluginShortcodes from "./_config/shortcodes.js";
@@ -49,6 +50,13 @@ export default async function(eleventyConfig) {
 				return `/${year}${name}`;
 			}
 			return data.permalink; // Use the explicitly set permalink if available
+		},
+		imagePath: data => {
+			if(!data.image) {
+				return;
+			}
+
+			return path.resolve(path.dirname(data.page.inputPath), data.image);
 		}
 	});
 
@@ -103,7 +111,7 @@ export default async function(eleventyConfig) {
 		extensions: "html",
 
 		// Output formats for each image.
-		formats: ["avif", "webp", "auto"],
+		formats: ["png", "avif", "webp", "auto"],
 
 		// widths: ["auto"],
 

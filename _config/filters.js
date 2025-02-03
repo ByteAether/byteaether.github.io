@@ -73,6 +73,8 @@ export default function(eleventyConfig) {
 	);
 
 	eleventyConfig.addFilter("contentImgUrlShortcode", contentImgUrlShortcode);
+
+	eleventyConfig.addFilter("pathRelative", pathRelative);
 };
 
 // Taken from here => https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/
@@ -87,6 +89,10 @@ function extractExcerpt(article) {
     const content = article.templateContent;
 
 	return striptags(content.slice(0, content.indexOf("\n")));
+}
+
+function pathRelative(to) {
+	return path.relative(path.dirname(this.page.inputPath), to)
 }
 
 async function contentImgUrlShortcode(src, options = {}) {
