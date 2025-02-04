@@ -82,12 +82,12 @@ For detailed usage instructions and a complete API reference, check out the [Git
 ## Performance Highlights
 ByteAether.Ulid outpaces competitors while maintaining strict adherence to the ULID specification.
 
-| Library         | Generation Speed | Compliance     | Error Handling |
-|-----------------|------------------|----------------|----------------|
-| ByteAether.Ulid | ✅ Fastest       | ✅ Full       | ✅ Graceful    |
-| NetUlid         | ⚠️ Slower        | ✅ Full       | ⚠️ Limited     |
-| NUlid           | ⚠️ Slower        | ✅ Full       | ⚠️ Limited     |
-| Cysharp.Ulid    | ⚠️ Slower        | ❌ Incomplete | ⚠️ Limited     |
+| Library         | Generation Speed                   | Compliance     | Error Handling |
+|-----------------|------------------------------------|----------------|----------------|
+| ByteAether.Ulid | ✅ Fastest                         | ✅ Full       | ✅ Graceful    |
+| NetUlid         | ⚠️ Slower                          | ✅ Full       | ⚠️ Limited     |
+| NUlid           | ⚠️ Slower                          | ✅ Full       | ⚠️ Limited     |
+| Cysharp.Ulid    | ⚠️ Fast, Non-secure, Non-monotonic | ❌ Incomplete | ⚠️ Limited     |
 
 For a full breakdown of benchmarks and testing methodology, visit our [GitHub repository](https://github.com/ByteAether/Ulid).
 
