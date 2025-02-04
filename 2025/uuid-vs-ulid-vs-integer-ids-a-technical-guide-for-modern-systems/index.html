@@ -5,11 +5,11 @@
 <meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>An Introduction to ULIDs: A Modern Identifier for Software Systems | ByteAether</title>
+<title>UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems | ByteAether</title>
 <meta name="description" content="Covering different software engineering topics.">
-<meta name="keywords" content="posts, uuid, ulid, guid, unique identifier, id, c#, csharp, dotnet, byteaether, blog, tech, programming">
+<meta name="keywords" content="posts, ulid, uuid, guid, id, entity-framework, database, sql, performance, c#, csharp, dotnet, byteaether, blog, tech, programming">
 <meta name="author" content="Joonatan Uusväli">
-<link rel="canonical" href="https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/">
+<link rel="canonical" href="https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/">
 
 <script type="application/ld+json">
 {
@@ -19,9 +19,9 @@
     "@type": "WebPage",
     "@id": "https://byteaether.github.io/"
   },
-  "headline": "An Introduction to ULIDs: A Modern Identifier for Software Systems",
+  "headline": "UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems",
   "description": "Covering different software engineering topics.",
-  "image": "https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.png",
+  "image": "https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.png",
   "author": {
     "@type": "Person",
     "name": "Joonatan Uusväli"
@@ -34,7 +34,7 @@
       "url": "https://byteaether.github.io/img/icon.svg"
     }
   },
-  "datePublished": "2025-01-28",
+  "datePublished": "2025-02-04",
   "dateModified": "2025-02-04"
 }
 </script>
@@ -46,19 +46,19 @@
 <link rel="manifest" href="/manifest.webmanifest">
 
 
-<meta property="og:url" content="https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/">
+<meta property="og:url" content="https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="An Introduction to ULIDs: A Modern Identifier for Software Systems | ByteAether">
+<meta property="og:title" content="UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems | ByteAether">
 <meta property="og:description" content="Covering different software engineering topics.">
 
-  <meta property="og:image" content="https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.png">
+  <meta property="og:image" content="https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.png">
 
 
 <meta property="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="An Introduction to ULIDs: A Modern Identifier for Software Systems | ByteAether">
+<meta name="twitter:title" content="UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems | ByteAether">
 <meta name="twitter:description" content="Covering different software engineering topics.">
 
-  <meta name="twitter:image" content="https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.png">
+  <meta name="twitter:image" content="https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.png">
 
 
 <meta name="robots" content="index, follow">
@@ -714,10 +714,10 @@ footer {
 					
 
 <article>
-		<picture><source type="image/avif" srcset="/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.avif 1280w"><source type="image/webp" srcset="/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.webp 1280w"><img loading="lazy" decoding="async" src="/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/YBtkyLeXTZ-1280.png" alt="" class="post-header" width="1280" height="720"></picture>
+		<picture><source type="image/avif" srcset="/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.avif 1792w"><source type="image/webp" srcset="/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.webp 1792w"><img loading="lazy" decoding="async" src="/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/kyB0UshIP3-1792.png" alt="" class="post-header" width="1792" height="1024"></picture>
 	
 
-	<h1 class="post-title">An Introduction to ULIDs: A Modern Identifier for Software Systems</h1>
+	<h1 class="post-title">UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems</h1>
 
 	<div class="post-meta">
 		
@@ -727,9 +727,9 @@ footer {
 <div class="post-metadata">
     <div>
         <i class="fa-regular fa-calendar"></i>
-        <time datetime="2025-01-28">28 January 2025</time>
+        <time datetime="2025-02-04">04 February 2025</time>
     </div>
-    <div data-words="993 words">
+    <div data-words="1,006 words">
         <i class="fa-regular fa-clock"></i>
         5 minutes
     </div>
@@ -737,78 +737,115 @@ footer {
         
         
             <i class="fa-solid fa-tags"></i>
-                <span class="tag"><a href="/tags/uuid/">uuid</a></span>
                 <span class="tag"><a href="/tags/ulid/">ulid</a></span>
+                <span class="tag"><a href="/tags/uuid/">uuid</a></span>
                 <span class="tag"><a href="/tags/guid/">guid</a></span>
-                <span class="tag"><a href="/tags/unique-identifier/">unique identifier</a></span>
                 <span class="tag"><a href="/tags/id/">id</a></span>
+                <span class="tag"><a href="/tags/entity-framework/">entity-framework</a></span>
+                <span class="tag"><a href="/tags/database/">database</a></span>
+                <span class="tag"><a href="/tags/sql/">sql</a></span>
+                <span class="tag"><a href="/tags/performance/">performance</a></span>
         
     </div>
 </div>
 	</div>
 
-	<p>In the world of software development, identifiers are a cornerstone of data storage and retrieval. Whether you are designing a database, an API, or a distributed system, choosing the right identifier scheme is critical to ensuring performance, scalability, and reliability. Two widely used options are auto-incrementing integers and UUIDs (Universally Unique Identifiers). While each has its strengths, they also come with significant trade-offs. ULIDs (Universally Unique Lexicographically Sortable Identifiers) have emerged as a modern alternative that combines the best of both worlds. This article introduces ULIDs by first exploring the strengths and limitations of traditional identifier schemes and then delving into the advantages of ULIDs.</p>
-<h2 id="the-strengths-and-limitations-of-auto-incrementing-integers" tabindex="-1">The Strengths and Limitations of Auto-Incrementing Integers</h2>
-<p>Auto-incrementing integers have been a staple in relational databases for decades. They are simple to implement, easy to understand, and offer excellent performance in single-node systems. With each new row, the database generates a unique, sequential integer that serves as the primary key. This approach ensures:</p>
-<ul>
-<li><strong>Predictable Order:</strong> The sequential nature of integers makes data easy to read and maintain.</li>
-<li><strong>Compact Storage:</strong> Integers require minimal storage space and are efficiently indexed.</li>
-<li><strong>Fast Operations:</strong> Range queries and lookups based on integers are highly optimized.</li>
-</ul>
-<p>However, this simplicity comes at a cost when dealing with distributed systems or high-scale applications:</p>
-<ul>
-<li><strong>Centralized Coordination:</strong> Generating sequential integers requires a single point of coordination, which can become a bottleneck in distributed systems.</li>
-<li><strong>Scalability Challenges:</strong> As the system grows, maintaining a central source of truth for generating identifiers becomes increasingly complex.</li>
-<li><strong>Collision Risk:</strong> Without central coordination, ensuring uniqueness across nodes is impossible.</li>
-</ul>
-<h2 id="uuids%3A-strengths-and-weaknesses" tabindex="-1">UUIDs: Strengths and Weaknesses</h2>
-<p>UUIDs were designed to address the distributed nature of modern systems. By using a combination of time, machine identifiers, and random numbers, UUIDs provide globally unique identifiers without requiring central coordination. Their advantages include:</p>
-<ul>
-<li><strong>Global Uniqueness:</strong> UUIDs ensure that identifiers generated on different machines or systems will never collide.</li>
-<li><strong>Distributed Scalability:</strong> Nodes can independently generate identifiers, eliminating the need for centralized coordination.</li>
-<li><strong>Standardization:</strong> UUIDs have a well-defined format and are supported across many programming languages and frameworks.</li>
-</ul>
-<p>However, the randomness inherent in UUIDs introduces its own set of challenges:</p>
-<ul>
-<li><strong>Index Fragmentation:</strong> UUIDs are effectively random, causing data to be scattered across database indexes. This leads to poor write performance and increased storage overhead.</li>
-<li><strong>Human Unreadability:</strong> UUIDs are long and complex, making them difficult to read or debug.</li>
-<li><strong>Inefficient Range Queries:</strong> UUIDs lack temporal ordering, complicating queries that rely on time-based filtering.</li>
-</ul>
-<h2 id="introducing-ulids%3A-the-best-of-both-worlds" tabindex="-1">Introducing ULIDs: The Best of Both Worlds</h2>
-<p>ULIDs were designed to overcome the limitations of both auto-incrementing integers and UUIDs. By combining a 48-bit timestamp with an 80-bit random component, ULIDs achieve:</p>
-<ul>
-<li><strong>Global Uniqueness:</strong> Like UUIDs, ULIDs are unique across distributed systems.</li>
-<li><strong>Temporal Ordering:</strong> The timestamp ensures that ULIDs are lexicographically sortable, preserving the chronological order of creation.</li>
-<li><strong>Distributed Generation:</strong> ULIDs can be generated independently without requiring central coordination.</li>
-<li><strong>Human Readability:</strong> ULIDs use <a href="https://www.crockford.com/base32.html">Crockford's Base32 encoding</a>, which avoids ambiguous characters and makes the identifier more readable as a string.</li>
-</ul>
-<p>The official ULID specification, available on <a href="https://github.com/ulid/spec">GitHub</a>, provides detailed guidelines for implementing ULIDs in various programming languages.</p>
-<h2 id="the-role-of-crockford's-base32-encoding" tabindex="-1">The Role of Crockford's Base32 Encoding</h2>
-<p>A key feature of ULIDs is their use of Crockford's Base32 encoding, which is designed to enhance human readability. This encoding scheme avoids visually similar characters, such as &quot;I&quot; and &quot;1&quot; or &quot;O&quot; and &quot;0,&quot; reducing the chance of errors when reading or transcribing ULIDs. Additionally, Base32-encoded ULIDs are case-insensitive, making them easier to handle in systems that do not preserve case.</p>
-<p>By encoding ULIDs in Base32, developers can work with identifiers that are compact, consistent, and user-friendly, bridging the gap between machine efficiency and human usability.</p>
-<h2 id="monotonicity%3A-preserving-order-in-high-throughput-systems" tabindex="-1">Monotonicity: Preserving Order in High-Throughput Systems</h2>
-<p>ULIDs also address a unique challenge in high-throughput systems: ensuring that identifiers remain ordered even when multiple are generated within the same millisecond. The monotonicity feature of ULIDs guarantees that if multiple ULIDs share the same timestamp, they are incremented to maintain their lexicographical order. This ensures:</p>
-<ul>
-<li><strong>Consistency:</strong> Data remains ordered, even under high-concurrency scenarios.</li>
-<li><strong>Query Efficiency:</strong> Time-based range queries continue to perform well, regardless of the volume of data generated.</li>
-<li><strong>Reliable Sorting:</strong> Applications that rely on ordered identifiers, such as event streams or analytics platforms, benefit from monotonicity.</li>
-</ul>
-<h2 id="why-ulids-matter-for-modern-applications" tabindex="-1">Why ULIDs Matter for Modern Applications</h2>
-<p>ULIDs are particularly well-suited for applications that require scalability, temporal ordering, and distributed generation. Use cases include:</p>
+	<p>Unique identifiers are critical components in software systems, serving as the foundation for data management, distributed architectures, and secure API design. While UUIDs (specifically UUIDv4) and integer IDs have been widely adopted, <a href="https://github.com/ulid/spec">ULIDs (Universally Unique Lexicographically Sortable Identifiers)</a> are increasingly recognized as a superior choice for modern applications. This article explores the technical distinctions between these identifiers, focusing on performance in .NET ecosystems and the database-level implications of their structural differences.</p>
+<h2 id="understanding-the-identifier-types" tabindex="-1">Understanding the Identifier Types</h2>
+<h3 id="integer-ids" tabindex="-1">Integer IDs</h3>
+<p>Integer IDs are sequential numeric values typically managed by databases through auto-increment mechanisms. Their simplicity and minimal storage requirements (4 bytes for <code>INT</code>, 8 bytes for <code>BIGINT</code>) make them straightforward to implement and efficient for indexing. However, their predictability exposes systems to security risks such as enumeration attacks (e.g., <code>/users/123</code>). Additionally, their reliance on centralized generation makes them unsuitable for distributed systems where coordination between nodes is impractical.</p>
+<h3 id="uuids" tabindex="-1">UUIDs</h3>
+<p>UUIDs are 128-bit identifiers designed to guarantee global uniqueness through randomness. The UUIDv4 variant, which uses 122 bits of random data, is the most common implementation. While UUIDs excel at collision resistance, their lack of inherent sortability leads to significant database performance issues, particularly in write-heavy systems. The random distribution of UUIDv4 values causes index fragmentation, increasing I/O overhead and reducing cache efficiency.</p>
+<h3 id="ulids" tabindex="-1">ULIDs</h3>
+<p>ULIDs are 128-bit identifiers composed of a 48-bit timestamp (millisecond precision) and 80 bits of cryptographically secure randomness. Encoded as a 26-character base32 string, ULIDs are lexicographically sortable, compact, and URL-safe. The timestamp prefix ensures that new records are inserted in chronological order, aligning with database indexing patterns to minimize fragmentation.</p>
+<h2 id="performance-in-.net-applications" tabindex="-1">Performance in .NET Applications</h2>
+<h3 id="ulid-generation-and-monotonicity" tabindex="-1">ULID Generation and Monotonicity</h3>
+<p>In .NET, the <strong><a href="https://github.com/ByteAether/Ulid">ByteAether.Ulid</a></strong> library provides a high-performance implementation of ULID generation. Benchmarks published in its GitHub repository demonstrate that it generates ULIDs with zero heap allocations, leveraging stack-based operations and optimized bitwise manipulation. A key feature of ULIDs is <strong>monotonicity</strong>, which ensures that identifiers generated within the same millisecond increment sequentially. This guarantees that data inserted in a logical order (e.g., batch processing workflows) remains ordered in the database. For example, in a distributed logging system, monotonicity ensures log entries from the same source retain their sequence even if generated microseconds apart. ByteAether.Ulid further enforces this by incrementing the timestamp when the random component overflows, avoiding errors during generation while preserving order.</p>
+<h3 id="why-uuids-fall-short" tabindex="-1">Why UUIDs Fall Short</h3>
+<p>While <code>Guid.NewGuid()</code> in .NET is fast, UUIDs lack structural ordering. This forces databases to insert records at random positions within indexes, leading to frequent page splits and fragmentation. ULIDs, by contrast, align insertion patterns with the natural ordering of database indexes, reducing overhead and improving throughput.</p>
+<h2 id="database-performance%3A-index-fragmentation-explained" tabindex="-1">Database Performance: Index Fragmentation Explained</h2>
+<h3 id="how-databases-organize-data" tabindex="-1">How Databases Organize Data</h3>
+<p>Databases store records in fixed-size blocks called <strong>pages</strong> (e.g., 8kB in SQL Server, 16kB in MySQL). These pages are managed within <strong>B+ tree</strong> structures, where leaf nodes store actual data rows, and internal nodes route queries using key values. Sequential insertion ensures new rows are added to the end of the leaf node chain, minimizing disk seeks and memory usage.</p>
+<h3 id="the-impact-of-random-identifiers" tabindex="-1">The Impact of Random Identifiers</h3>
+<p>When identifiers are random (e.g., UUIDv4), new rows are inserted at arbitrary positions within the B+ tree. This forces databases to split existing pages to accommodate entries, a process known as <strong>page splitting</strong>. For example, inserting a record with UUID <code>f47ac10b-...</code> into a page already containing <code>a5670e02-...</code> may split the page into two, with half the rows moved to a new location.</p>
+<p>Page splits have three major consequences:</p>
 <ol>
-<li><strong>Event Logging:</strong> Ensures efficient storage and retrieval of time-stamped log entries.</li>
-<li><strong>Distributed Databases:</strong> Eliminates the need for central coordination while preserving order.</li>
-<li><strong>Analytics and Reporting:</strong> Facilitates time-based filtering and aggregation of data.</li>
-<li><strong>High-Throughput Systems:</strong> Maintains performance and order even under heavy write loads.</li>
+<li><strong>Increased I/O Overhead</strong>: Fragmented pages require more disk reads to retrieve logically contiguous data.</li>
+<li><strong>Memory Pressure</strong>: More pages are loaded into the buffer pool, reducing the cache's effectiveness.</li>
+<li><strong>Write Amplification</strong>: Splits generate additional transaction log entries, slowing bulk inserts and increasing storage costs.</li>
 </ol>
-<h2 id="implementing-ulids-in-practice" tabindex="-1">Implementing ULIDs in Practice</h2>
-<p>For developers looking to adopt ULIDs, a variety of libraries are available across programming languages. In particular, the <a href="https://github.com/ByteAether/Ulid">ByteAether's Ulid GitHub repository</a> offers a high-performance C# implementation.</p>
-<p>By following the official specification and leveraging well-maintained libraries, developers can integrate ULIDs into their systems with minimal effort and maximum reliability.</p>
-<h2 id="conclusion" tabindex="-1">Conclusion</h2>
-<p>ULIDs offer a modern, versatile solution to the challenges of identifier generation in software systems. By combining the benefits of auto-incrementing integers and UUIDs while avoiding their pitfalls, ULIDs provide a unique identifier scheme that is globally unique, lexicographically sortable, and human-readable. With features like Crockford's Base32 encoding and monotonicity, ULIDs are tailored for the demands of modern applications, from distributed systems to time-based analytics.</p>
-<p>Whether you are building a new system or optimizing an existing one, ULIDs represent a compelling option for identifier management. With their growing ecosystem of libraries and strong community support, they are poised to become a standard choice for developers seeking scalability, performance, and simplicity.</p>
-<hr>
-<p>Start integrating ULIDs into your .NET applications today with <a href="https://github.com/ByteAether/Ulid">ByteAether.Ulid</a>. Let us know your thoughts and feedback—we’re excited to see what you build!</p>
+<h3 id="ulid%E2%80%99s-structural-advantage" tabindex="-1">ULID’s Structural Advantage</h3>
+<p>ULIDs embed a timestamp in their high-order bits, ensuring that new records are inserted sequentially. This aligns with the B+ tree’s design, reducing page splits compared to UUIDv4.</p>
+<h2 id="implementing-ulids-in-.net-with-byteaether.ulid" tabindex="-1">Implementing ULIDs in .NET with ByteAether.Ulid</h2>
+<h3 id="integration-with-database-systems" tabindex="-1">Integration with Database Systems</h3>
+<p>The <strong>ByteAether.Ulid</strong> library simplifies storing ULIDs as binary data, minimizing storage overhead and accelerating queries. Below are examples of integrating ULIDs with popular .NET data access frameworks:</p>
+<h4 id="entity-framework-core-configuration" tabindex="-1">Entity Framework Core Configuration</h4>
+<pre class="language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Ulid</span> Id <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">// Stored as BINARY(16)</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Product <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UlidToBytesConverter</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">ValueConverter<span class="token punctuation">&lt;</span>Ulid<span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">></span></span></span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token class-name">ConverterMappingHints</span> DefaultHints <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span><span class="token named-parameter punctuation">size</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token function">UlidToBytesConverter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">(</span>defaultHints<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">UlidToBytesConverter</span><span class="token punctuation">(</span><span class="token class-name">ConverterMappingHints<span class="token punctuation">?</span></span> mappingHints <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+		<span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>
+			<span class="token named-parameter punctuation">convertToProviderExpression</span><span class="token punctuation">:</span> x <span class="token operator">=></span> x<span class="token punctuation">.</span><span class="token function">ToByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			<span class="token named-parameter punctuation">convertFromProviderExpression</span><span class="token punctuation">:</span> x <span class="token operator">=></span> Ulid<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+			<span class="token named-parameter punctuation">mappingHints</span><span class="token punctuation">:</span> defaultHints<span class="token punctuation">.</span><span class="token function">With</span><span class="token punctuation">(</span>mappingHints<span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// In DbContext configuration</span>
+<span class="token keyword">protected</span> <span class="token keyword">override</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnModelCreating</span><span class="token punctuation">(</span><span class="token class-name">ModelBuilder</span> modelBuilder<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// ...</span>
+	configurationBuilder
+		<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Properties</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Ulid<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">HaveConversion</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>UlidToBytesConverter<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// ...</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="dapper-type-handler" tabindex="-1">Dapper Type Handler</h4>
+<pre class="language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UlidTypeHandler</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">SqlMapper<span class="token punctuation">.</span>TypeHandler<span class="token punctuation">&lt;</span>Ulid<span class="token punctuation">></span></span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">SetValue</span><span class="token punctuation">(</span><span class="token class-name">IDbDataParameter</span> parameter<span class="token punctuation">,</span> <span class="token class-name">Ulid</span> <span class="token keyword">value</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        parameter<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">.</span><span class="token function">ToByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token return-type class-name">Ulid</span> <span class="token function">Parse</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">object</span></span> <span class="token keyword">value</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Ulid<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Dapper<span class="token punctuation">.</span>SqlMapper<span class="token punctuation">.</span><span class="token function">AddTypeHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">UlidTypeHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="performance-metrics" tabindex="-1">Performance Metrics</h3>
+<p>The ByteAether.Ulid library generates ULIDs efficiently with zero heap allocations, making it ideal for high-throughput scenarios like event sourcing or real-time analytics. Detailed benchmark results are available in its <a href="https://github.com/ByteAether/Ulid">GitHub repository</a>.</p>
+<h2 id="recommendations-and-conclusion" tabindex="-1">Recommendations and Conclusion</h2>
+<h3 id="when-to-use-ulids" tabindex="-1">When to Use ULIDs</h3>
+<p>ULIDs are particularly advantageous in:</p>
+<ul>
+<li><strong>Distributed Systems:</strong> Decentralized generation eliminates coordination overhead.</li>
+<li><strong>Time-Series Workloads:</strong> Embedded timestamps simplify partitioning and range queries.</li>
+<li><strong>Batch Processing:</strong> Monotonicity ensures data retains its logical insertion order.</li>
+</ul>
+<h3 id="why-byteaether.ulid%3F" tabindex="-1">Why ByteAether.Ulid?</h3>
+<ul>
+<li><strong>Speed:</strong> Generates ULIDs faster than Guid.NewGuid() in .NET.</li>
+<li><strong>Efficiency:</strong> Zero heap allocations reduce garbage collection pressure.</li>
+<li><strong>Simplicity:</strong> Seamless integration with EF Core, Dapper, and JSON serializers.</li>
+</ul>
+<h2 id="the-future-of-identifiers" tabindex="-1">The Future of Identifiers</h2>
+<p>UUIDs and integer IDs remain viable for legacy use cases, but ULIDs address their core limitations: sortability, fragmentation, and scalability. For .NET developers, <strong><a href="https://github.com/ByteAether/Ulid">ByteAether.Ulid</a></strong> offers a robust, future-proof solution that aligns application logic with database storage mechanics.</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token comment"># Install ByteAether.Ulid</span>
+dotnet <span class="token function">add</span> package ByteAether.Ulid</code></pre>
+<p>By adopting ULIDs, teams can achieve faster queries, reduced infrastructure costs, and architectures that scale effortlessly—proving that the right identifier can transform system design.</p>
 
 </article>
 
@@ -818,24 +855,24 @@ footer {
     <a aria-label="Copy page link to clipboard" onclick="copyUrlToClipboard()" role="link">
         <i class="fa-solid fa-link"></i>
     </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/" target="_blank" rel="noopener" aria-label="Share on Facebook (opens new tab)">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/" target="_blank" rel="noopener" aria-label="Share on Facebook (opens new tab)">
         <i class="fa-brands fa-facebook-f"></i>
     </a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/" target="_blank" rel="noopener" aria-label="Share on LinkedIn (opens new tab)">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/" target="_blank" rel="noopener" aria-label="Share on LinkedIn (opens new tab)">
         <i class="fa-brands fa-linkedin"></i>
     </a>
-    <a href="https://twitter.com/intent/tweet/?text=An Introduction to ULIDs: A Modern Identifier for Software Systems&url=https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/" target="_blank" rel="noopener" aria-label="Share on Twitter (opens new tab)">
+    <a href="https://twitter.com/intent/tweet/?text=UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems&url=https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/" target="_blank" rel="noopener" aria-label="Share on Twitter (opens new tab)">
         <i class="fa-brands fa-twitter"></i>
     </a>
 
-    <a href="https://bsky.app/intent/compose?text=https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/" target="_blank" rel="noopener" aria-label="Share on Bluesky (opens new tab)">
+    <a href="https://bsky.app/intent/compose?text=https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/" target="_blank" rel="noopener" aria-label="Share on Bluesky (opens new tab)">
         <i class="fa-brands fa-bluesky"></i>
     </a>
     <span>Share:</span>
 </div>
 		<ul class="links-nextprev">
-			<li class="links-nextprev-prev">← Previous<br> <a href="/2025/announcing-byteaetherulid-v100-a-high-performance-net-ulid-library-for-modern-applications/">Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications</a></li>
-			<li class="links-nextprev-next">Next →<br><a href="/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/">UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems</a></li>
+			<li class="links-nextprev-prev">← Previous<br> <a href="/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/">An Introduction to ULIDs: A Modern Identifier for Software Systems</a></li>
+			<li class="links-nextprev-next"></li>
 		</ul>
 
 
@@ -900,14 +937,20 @@ footer {
     <div class="toc-container aside-content">
         <span><b>Table of Contents</b></span>
         <div>
-            <nav class="toc"><ol><li><a href="#the-strengths-and-limitations-of-auto-incrementing-integers">The Strengths and Limitations of Auto-Incrementing Integers</a></li>
-<li><a href="#uuids%3A-strengths-and-weaknesses">UUIDs: Strengths and Weaknesses</a></li>
-<li><a href="#introducing-ulids%3A-the-best-of-both-worlds">Introducing ULIDs: The Best of Both Worlds</a></li>
-<li><a href="#the-role-of-crockford's-base32-encoding">The Role of Crockford's Base32 Encoding</a></li>
-<li><a href="#monotonicity%3A-preserving-order-in-high-throughput-systems">Monotonicity: Preserving Order in High-Throughput Systems</a></li>
-<li><a href="#why-ulids-matter-for-modern-applications">Why ULIDs Matter for Modern Applications</a></li>
-<li><a href="#implementing-ulids-in-practice">Implementing ULIDs in Practice</a></li>
-<li><a href="#conclusion">Conclusion</a></li></ol></nav>
+            <nav class="toc"><ol><li><a href="#understanding-the-identifier-types">Understanding the Identifier Types</a><ol><li><a href="#integer-ids">Integer IDs</a></li>
+<li><a href="#uuids">UUIDs</a></li>
+<li><a href="#ulids">ULIDs</a></li></ol></li>
+<li><a href="#performance-in-.net-applications">Performance in .NET Applications</a><ol><li><a href="#ulid-generation-and-monotonicity">ULID Generation and Monotonicity</a></li>
+<li><a href="#why-uuids-fall-short">Why UUIDs Fall Short</a></li></ol></li>
+<li><a href="#database-performance%3A-index-fragmentation-explained">Database Performance: Index Fragmentation Explained</a><ol><li><a href="#how-databases-organize-data">How Databases Organize Data</a></li>
+<li><a href="#the-impact-of-random-identifiers">The Impact of Random Identifiers</a></li>
+<li><a href="#ulid%E2%80%99s-structural-advantage">ULID’s Structural Advantage</a></li></ol></li>
+<li><a href="#implementing-ulids-in-.net-with-byteaether.ulid">Implementing ULIDs in .NET with ByteAether.Ulid</a><ol><li><a href="#integration-with-database-systems">Integration with Database Systems</a><ol><li><a href="#entity-framework-core-configuration">Entity Framework Core Configuration</a></li>
+<li><a href="#dapper-type-handler">Dapper Type Handler</a></li></ol></li>
+<li><a href="#performance-metrics">Performance Metrics</a></li></ol></li>
+<li><a href="#recommendations-and-conclusion">Recommendations and Conclusion</a><ol><li><a href="#when-to-use-ulids">When to Use ULIDs</a></li>
+<li><a href="#why-byteaether.ulid%3F">Why ByteAether.Ulid?</a></li></ol></li>
+<li><a href="#the-future-of-identifiers">The Future of Identifiers</a></li></ol></nav>
         </div>
     </div>
 
@@ -924,7 +967,7 @@ footer {
     </div>
 </footer>
 
-		<!-- This page `https://byteaether.github.io/2025/an-introduction-to-ulids-a-modern-identifier-for-software-systems/` was built on 2025-02-04 08:25:29 -->
+		<!-- This page `https://byteaether.github.io/2025/uuid-vs-ulid-vs-integer-ids-a-technical-guide-for-modern-systems/` was built on 2025-02-04 08:25:29 -->
 		<script type="module" src="/dist/DMkDNqNnF6.js"></script>
 	</body>
 </html>
