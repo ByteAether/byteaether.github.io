@@ -314,7 +314,7 @@ dotnet &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; package Byt
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Cysharp.Ulid&lt;/td&gt;
-&lt;td&gt;❌ Non-secure, Non-monotonic&lt;/td&gt;
+&lt;td&gt;⚠️ Fast, Non-secure, Non-monotonic&lt;/td&gt;
 &lt;td&gt;❌ Incomplete&lt;/td&gt;
 &lt;td&gt;⚠️ Limited&lt;/td&gt;
 &lt;/tr&gt;
