@@ -102,9 +102,9 @@ Dapper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SqlMapper&lt
 &lt;/ul&gt;
 &lt;h3 id=&quot;why-byteaether.ulid%3F&quot; tabindex=&quot;-1&quot;&gt;Why ByteAether.Ulid?&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Speed:&lt;/strong&gt; Generates ULIDs faster than Guid.NewGuid() in .NET.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speed:&lt;/strong&gt; Generates ULIDs faster than other .NET libaries.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Efficiency:&lt;/strong&gt; Zero heap allocations reduce garbage collection pressure.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Simplicity:&lt;/strong&gt; Seamless integration with EF Core, Dapper, and JSON serializers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simplicity:&lt;/strong&gt; Seamless integration with EF Core, Dapper, JSON serializers and more.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;the-future-of-identifiers&quot; tabindex=&quot;-1&quot;&gt;The Future of Identifiers&lt;/h2&gt;
 &lt;p&gt;UUIDs and integer IDs remain viable for legacy use cases, but ULIDs address their core limitations: sortability, fragmentation, and scalability. For .NET developers, &lt;strong&gt;&lt;a href=&quot;https://github.com/ByteAether/Ulid&quot;&gt;ByteAether.Ulid&lt;/a&gt;&lt;/strong&gt; offers a robust, future-proof solution that aligns application logic with database storage mechanics.&lt;/p&gt;
