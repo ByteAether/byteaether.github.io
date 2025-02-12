@@ -4,7 +4,7 @@ export default {
 	logo: "/img/icon.svg",
 	language: "en",
 	description: "Covering different software engineering topics.",
-	tags: ["c#", "csharp", "dotnet", "byteaether", "blog", "tech", "programming"],
+	tags: ["c#", "csharp", "dotnet", ".net", "byteaether", "blog", "tech", "programming"],
 	author: {
 		name: "Joonatan Uusväli",
 		email: "joonatanu@gmail.com",

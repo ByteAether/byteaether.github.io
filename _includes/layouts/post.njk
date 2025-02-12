@@ -2,9 +2,9 @@
 layout: layouts/base.njk
 ---
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
-{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
-{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
-{%- css %}
+{% css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+{% css %}{% include "public/css/prism-diff.css" %}{% endcss %}
+{% css %}
 
 article {
 	padding-top: 2rem;
@@ -28,11 +28,11 @@ h1.post-title {
 	margin-bottom: 1rem;
 }
 
-{%- endcss %}
+{% endcss %}
 
 <article>
-	{%- if image %}
-		<img src="{{ image }}" alt="" class="post-header" />
+	{% if imageUrl %}
+		<img eleventy:ignore src="{{ imageUrl }}" alt="" class="post-header" />
 	{% endif %}
 
 	<h1 class="post-title">{{ title }}</h1>
@@ -46,16 +46,16 @@ h1.post-title {
 
 {% include "partials/socials.njk" %}
 
-{%- if collections.posts %}
-	{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-	{%- set nextPost = collections.posts | getNextCollectionItem %}
-	{%- if nextPost or previousPost %}
+{% if collections.posts %}
+	{% set previousPost = collections.posts | getPreviousCollectionItem %}
+	{% set nextPost = collections.posts | getNextCollectionItem %}
+	{% if nextPost or previousPost %}
 		<ul class="links-nextprev">
-			<li class="links-nextprev-prev">{%- if previousPost %}← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</li>
-			<li class="links-nextprev-next">{%- if nextPost %}Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</li>
+			<li class="links-nextprev-prev">{% if previousPost %}← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</li>
+			<li class="links-nextprev-next">{% if nextPost %}Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</li>
 		</ul>
-	{%- endif %}
-{%- endif %}
+	{% endif %}
+{% endif %}
 
 {% if metadata.githubComments.repo %}
 	<div id="giscus-comments"></div>

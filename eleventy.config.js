@@ -9,6 +9,7 @@ import markdownItAnchor from "markdown-it-anchor";
 import pluginTOC from "@uncenter/eleventy-plugin-toc";
 import faviconsPlugin from "eleventy-plugin-gen-favicons";
 import path from 'node:path';
+import Image from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
 import pluginShortcodes from "./_config/shortcodes.js";
@@ -51,13 +52,7 @@ export default async function(eleventyConfig) {
 			}
 			return data.permalink; // Use the explicitly set permalink if available
 		},
-		imagePath: data => {
-			if(!data.image) {
-				return;
-			}
-
-			return path.resolve(path.dirname(data.page.inputPath), data.image);
-		}
+		imageUrl: data => headerImageUrl(data)
 	});
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
@@ -175,3 +170,35 @@ export const config = {
 
 	// pathPrefix: "/",
 };
+
+async function headerImageUrl(data) {
+	if(!data.image || !data.page.url)
+	{
+		return null;
+	}
+
+	const inputDir = path.dirname(data.page.inputPath);
+	const imagePath = path.resolve(inputDir, data.image);
+
+	const imageOptions = {
+		formats: ["png"],
+		urlPath: data.page.url,
+		outputDir: path.dirname(data.page.outputPath),
+		filenameFormat: function (hash, src, width, format) {
+			return `${hash}-${width}.${format}`;
+		},
+		cacheOptions: {
+		  duration: "1w"
+		}
+	};
+
+	const img = await Image(imagePath, imageOptions);
+
+	// Get the generated image URL
+	const formatData = img[imageOptions.formats[0]];
+	if (!formatData || !formatData[0]) {
+	  throw new Error(`Image processing failed for ${src}`);
+	}
+
+	return formatData[0].url; // Return the URL of the processed image
+}

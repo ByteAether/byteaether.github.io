@@ -125,25 +125,22 @@ h4 {
 
 .content-wrapper {
 	display: grid;
-	grid-template-columns: auto 18em;
 	grid-auto-flow: column;
+	grid-template-columns: auto min-content;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 70em;
-}
-@media(max-width: 1024px) {
-	.content-wrapper  {
-		grid-template-columns: auto 0;
-	}
 }
 
 main {
 	padding: 1rem;
 	padding-top: 0;
-	background-color: var(--bg-color);
 	color: var(--text-color);
 	transition: background-color 0.3s, color 0.3s;
-	min-width: 0;
+}
+
+aside {
+	width: 18em;
 }
 
 @media(max-width: 1024px) {
@@ -160,8 +157,8 @@ code {
 }
 pre:not([class*="language-"]),
 code:not([class*="language-"]) {
-	margin: .5rem 0;
-	padding: 0.25rem;
+	margin: 0;
+	padding: 0.1rem;
 	-moz-tab-size: var(--syntax-tab-size);
 	-o-tab-size: var(--syntax-tab-size);
 	tab-size: var(--syntax-tab-size);
@@ -176,6 +173,7 @@ code:not([class*="language-"]) {
 	overflow-x: auto;
 	background-color: var(--bg-color-secondary);
 	border-radius: 4px;
+	border: 1px solid var(--border-color);
 	transition: background-color 0.3s;
 }
 

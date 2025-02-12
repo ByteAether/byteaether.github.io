@@ -17,10 +17,20 @@ const eleventyComputed = {
 	}
 };
 ---
+{% css %}
+.posts {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 50% 50%;
+}
+{% endcss %}
+
 <h1>Tagged “{{ tag }}”</h1>
 
+<div class="posts">
 {% for post in collections[tag] | reverse %}
 	{% include "partials/post-card.njk" %}
 {% endfor %}
+</div>
 
 <p>See <a href="tags.njk">all tags</a>.</p>

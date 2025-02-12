@@ -3,12 +3,12 @@
 	<head>
 		{% include "partials/head.njk" %}
 		
-		{%- css %}{% include "public/css/index.css" %}{% endcss %}
+		{% css %}{% include "public/css/index.css" %}{% endcss %}
 		
-		{%- css %}{% include "node_modules/@fortawesome/fontawesome-free/css/svg-with-js.min.css" %}{% endcss %}
-		{%- js %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjs %}
+		{% css %}{% include "node_modules/@fortawesome/fontawesome-free/css/svg-with-js.min.css" %}{% endcss %}
+		{% js %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjs %}
 
-		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+		{% js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 
 		<style>{% getBundle "css" %}</style>
 		<script src="/js/main.js"></script>
@@ -26,9 +26,11 @@
 				</heading-anchors>
 			</main>
 
-			<aside>
-				{% include "partials/aside.njk" %}
-			</aside>
+			{% if aside %}
+				<aside>
+					{% include "partials/aside.njk" %}
+				</aside>
+			{% endif %}
 
 		</div>
 

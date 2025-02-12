@@ -72,8 +72,6 @@ export default function(eleventyConfig) {
 		extractExcerpt(post)
 	);
 
-	eleventyConfig.addFilter("contentImgUrlShortcode", contentImgUrlShortcode);
-
 	eleventyConfig.addFilter("pathRelative", pathRelative);
 };
 
@@ -93,35 +91,4 @@ function extractExcerpt(article) {
 
 function pathRelative(to) {
 	return path.relative(path.dirname(this.page.inputPath), to)
-}
-
-async function contentImgUrlShortcode(src, options = {}) {
-	const inputDir = path.dirname(this.page.inputPath);
-	const imagePath = path.resolve(inputDir, src);
-	const outputDir = path.dirname(this.page.outputPath);
-	const urlPath = this.page.url;
-
-	const imageOptions = {
-		widths: [options.width || null],
-		formats: [options.format || "png"],
-		outputDir: outputDir, // Output directory
-		urlPath: urlPath, // Public URL path
-		filenameFormat: function (hash, src, width, format) {
-			return `${hash}-${width}.${format}`;
-		},
-		cacheOptions: {
-		  duration: "1w"
-		}
-	};
-
-	const img = await Image(imagePath, imageOptions);
-
-	// Get the generated image URL
-    const formatData = img[imageOptions.formats[0]];
-    if (!formatData || !formatData[0]) {
-      throw new Error(`Image processing failed for ${src}`);
-    }
-    const absoluteUrl = formatData[0].url;
-
-	return absoluteUrl; // Return the URL of the processed image
 }
