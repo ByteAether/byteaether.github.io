@@ -10,6 +10,7 @@ import pluginTOC from "@uncenter/eleventy-plugin-toc";
 import faviconsPlugin from "eleventy-plugin-gen-favicons";
 import path from 'node:path';
 import Image from "@11ty/eleventy-img";
+import Minifier from "html-minifier-terser";
 
 import pluginFilters from "./_config/filters.js";
 import pluginShortcodes from "./_config/shortcodes.js";
@@ -122,6 +123,21 @@ export default async function(eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginFilters);
 	eleventyConfig.addPlugin(pluginShortcodes);
+
+	eleventyConfig.addTransform('minifier', (value, outputPath) => {
+		if(!outputPath || outputPath.indexOf('.html') <= 0)
+		{
+			return value;
+		}
+
+		return Minifier.minify(value, {
+			useShortDoctype: true,
+			removeComments: true,
+			collapseWhitespace: true,
+			minifyCSS: true,
+			minifyJS: true,
+		});
+	});
 
 	// Features to make your build faster (when you need them)
 

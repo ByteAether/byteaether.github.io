@@ -3,15 +3,13 @@
 	<head>
 		{% include "partials/head.njk" %}
 		
-		{% css %}{% include "public/css/index.css" %}{% endcss %}
-		
-		{% css %}{% include "node_modules/@fortawesome/fontawesome-free/css/svg-with-js.min.css" %}{% endcss %}
 		{% js %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjs %}
-
 		{% js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 
+		<link rel="stylesheet" href="/css/index.css" />
 		<style>{% getBundle "css" %}</style>
 		<script src="/js/main.js"></script>
+		{% block head %}{% endblock %}
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
