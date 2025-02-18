@@ -2,7 +2,7 @@
 title: "Announcing ByteAether.Ulid v1.0.0: A High-Performance .NET ULID Library for Modern Applications"
 date: 2025-01-21
 image: header.png
-tags: ["ulid", "uuid", "guid", "unique identifier", "id"]
+tags: ["ulid", "uuid", "guid", "id"]
 ---
 
 Frustrated with GUIDs that aren’t sortable or human-readable? Meet ByteAether.Ulid - a ULID library designed to simplify your .NET development.

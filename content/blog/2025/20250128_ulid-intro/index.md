@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to ULIDs: A Modern Identifier for Software Systems"
 date: 2025-01-28
-tags: ["uuid", "ulid", "guid", "unique identifier", "id"]
+tags: ["uuid", "ulid", "guid", "id"]
 image: header.png
 ---
 In the world of software development, identifiers are a cornerstone of data storage and retrieval. Whether you are designing a database, an API, or a distributed system, choosing the right identifier scheme is critical to ensuring performance, scalability, and reliability. Two widely used options are auto-incrementing integers and UUIDs (Universally Unique Identifiers). While each has its strengths, they also come with significant trade-offs. ULIDs (Universally Unique Lexicographically Sortable Identifiers) have emerged as a modern alternative that combines the best of both worlds. This article introduces ULIDs by first exploring the strengths and limitations of traditional identifier schemes and then delving into the advantages of ULIDs.
