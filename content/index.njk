@@ -13,7 +13,12 @@ canonical: /
 .posts {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
+}
+@media(max-width: 1024px) {
+	.posts {
+		grid-template-columns: 100%;
+	}
 }
 {% endcss %}
 
