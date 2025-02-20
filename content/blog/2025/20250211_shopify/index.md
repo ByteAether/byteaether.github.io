@@ -1,7 +1,7 @@
 ---
 title: "ULIDs as the Default Choice for Modern Systems: Lessons from Shopify's Payment Infrastructure"
 date: 2025-02-11
-tags: ["ulid", "uuid", "id", "database", "sql", "shopify", "performance"]
+tags: ["ULID", "UUID", "ID", "Database", "SQL", "Shopify", "Performance"]
 image: header.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Seamlessly Connecting Frontend and Backend Data in .NET Applications: A New Paradigm for Effortless Integration"
 date: 2025-02-18
-tags: ["querylink", "integration", "entity-framework", "linq", "sql", "fullstack", "database"]
+tags: ["ByteAether.QueryLink", "QueryLink", "Integration", "Entity Framework", "LINQ", "SQL", "Fullstack", "Database", "Blazor"]
 image: header.png
 ---
 In today's fast‐paced software development world, engineers are often forced to write repetitive integration logic to connect user interfaces - especially data grids and tables - to their backend data sources. Every project, every new feature, and every iteration seems to reintroduce the same challenges: how do we reliably filter, sort, and display data without reinventing the wheel each time? The answer lies in automating these common tasks, thereby freeing developers to focus on business logic rather than boilerplate code.
