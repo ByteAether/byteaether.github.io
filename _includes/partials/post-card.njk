@@ -7,6 +7,8 @@
     padding: 8px;
     background-color: var(--bg-color-secondary);
     box-shadow: 2px 2px 4px var(--shadow-color);
+    justify-content: space-between;
+    transition: background-color 0.3s;
 }
 
 .post-card h2 {
@@ -16,16 +18,17 @@
 {% endcss %}
 
 <div class="post-card">
-    
-    <h2><a href="{{ post.url }}">
-        {% if post.data.imageUrl %}
-            <img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="post-card-image" />
-        {% endif %}
+    <div>
+        <h2><a href="{{ post.url }}">
+            {% if post.data.imageUrl %}
+                <img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="post-card-image" />
+            {% endif %}
 
-        {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
-    </a></h2>
-    
-    <div class="excerpt"><em>{{ post | excerpt | truncate(500) }}</em></div>
+            {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+        </a></h2>
+        
+        <div class="excerpt"><em>{{ post | excerpt | truncate(500) }}</em></div>
+    </div>
 
     {% include "./post-meta.njk" %}
 

@@ -21,9 +21,14 @@ const eleventyComputed = {
 .posts {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 @media(max-width: 1024px) {
+	.posts {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media(max-width: 640px) {
 	.posts {
 		grid-template-columns: 100%;
 	}

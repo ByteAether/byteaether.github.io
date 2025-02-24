@@ -1,16 +1,22 @@
----
-eleventyNavigation:
-  key: "Tags"
-  order: 3
-aside: true
+---js
+// <script>
+const eleventyNavigation = {
+  key: "Tags",
+  order: 3,
+};
+const aside = true;
+
+function pageTags(collection){
+  return Object.keys(collection)
+    .map((name) => ({
+      name: name,
+      posts: collection[name],
+    }))
+    .sort((a, b) => b.posts.length - a.posts.length);
+};
+
+// </script>
 ---
 <h1>Tags</h1>
 
-<ul>
-{% for tag, posts in collections.tags %}
-  {% if posts.length > 0 %}
-    {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-    <li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a> ({{ posts.length }})</li>
-  {% endif %}
-{% endfor %}
-</ul>
+{% include "partials/taglist.njk" %}

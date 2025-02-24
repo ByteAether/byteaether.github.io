@@ -1,8 +1,21 @@
----
-eleventyNavigation:
-  key: "Archive"
-  order: 4
-aside: true
+---js
+// <script>
+const eleventyNavigation = {
+  key: "Archive",
+  order: 4,
+};
+const aside = true;
+
+function pagePosts(collection){
+  return Object.keys(collection)
+    .map((name) => ({
+      name: name,
+      posts: collection[name],
+    }))
+    .sort((a, b) => b.posts.length - a.posts.length);
+};
+
+// </script>
 ---
 {%- css %}
 .archive-list .year {
@@ -14,22 +27,38 @@ aside: true
   margin: 0;
   padding: 0;
 }
+
 .archive-list li {
   margin: 0.5rem;
   padding: 0.5rem;
-  background: linear-gradient(90deg, var(--bg-color-secondary) 0%, var(--bg-color) 50%, var(--bg-color-secondary) 100%);
+  
+  background: var(--bg-color-secondary);
+  box-shadow: 2px 2px 4px var(--shadow-color);
+
+  transition: background-color 0.3s;
+}
+
+.archive-list li.post {
+  margin-left: 2rem;
 }
 {% endcss %}
 
 <h1>Archive</h1>
 
+{% set year = undefined %}
+
 <div class="archive-list">
   <ul>
-  {% for post in collections.posts | reverse %}
-    <li>
-        <span>{{ post.date | readableDate }}</span>
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-    </li>
-  {% endfor %}
+    {% for post in collections.posts | reverse %}
+      {% set postYear = post.date.getFullYear() %}
+      {% if postYear != year %}
+        {% set year = postYear %}
+        <li class="year">{{ year }}</li>
+      {% endif %}
+      <li class="post">
+          <span>{{ post.date | formatDate('MMMM d') }}</span>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </li>
+    {% endfor %}
   </ul>
 </div>

@@ -20,6 +20,9 @@
     margin: 0
 }
 .series-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 0.5rem;
     background-color: var(--bg-color-secondary);
     box-shadow: 2px 2px 4px var(--shadow-color);
@@ -38,8 +41,7 @@
                         <img eleventy:ignore src="{{seriePost.data.imageUrl }}" alt="{{ seriePost.data.title }}" class="series-post-image" />
                         {{ seriePost.data.title }}
                     </a>
-                    <br />
-                    {{ seriePost.data.date | readableDate }}
+                    <div>{{ seriePost.data.date | readableDate }}</div>
                 </div>
             {% endfor %}
         {% endif %}

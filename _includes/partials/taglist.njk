@@ -1,0 +1,32 @@
+{% css %}
+.taglist {
+    display: flex;
+	flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.taglist .tag {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--bg-color-secondary);
+	padding: 0 0.25rem;
+	transition: background-color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+}
+
+.taglist .tag.active {
+	font-weight: bold;
+}
+{% endcss %}
+
+<div class="taglist">
+    {% for tag in pageTags(collections.tags) %}
+    {% if tag.posts.length > 0 %}
+        {% set tagUrl %}/tags/{{ tag.name | slugify }}/{% endset %}
+        <span class="tag{% if tagUrl == page.url %} active{% endif %}">
+            <i class="fa-solid fa-tags"></i>
+            <a href="{{ tagUrl }}" class="post-tag">{{ tag.name }}</a> ({{ tag.posts.length }})
+        </span>
+    {% endif %}
+    {% endfor %}
+</div>

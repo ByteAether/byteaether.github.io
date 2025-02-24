@@ -10,11 +10,22 @@ const pagination = {
 
 const eleventyExcludeFromCollections = true;
 
+const aside = true;
+
 const eleventyComputed = {
 	title: "Tagged '{{ tag }}'",
 	permalink: function(data) {
 		return `/tags/${this.slugify(data.tag)}/`;
 	}
+};
+
+function pageTags(collection){
+  return Object.keys(collection)
+    .map((name) => ({
+      name: name,
+      posts: collection[name],
+    }))
+    .sort((a, b) => b.posts.length - a.posts.length);
 };
 // </script>
 ---
@@ -22,21 +33,43 @@ const eleventyComputed = {
 .posts {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1rem;
 }
 @media(max-width: 1024px) {
 	.posts {
-		grid-template-columns: 100%;
+		grid-template-columns: 1fr 1fr;
 	}
+}
+@media(max-width: 480px) {
+	.posts {
+		grid-template-columns: 1fr;
+	}
+}
+.tag-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 8px;
+  background-color: var(--bg-color-secondary);
+  box-shadow: 2px 2px 4px var(--shadow-color);
+  transition: background-color 0.3s;
 }
 {% endcss %}
 
 <h1>Tagged “{{ tag }}”</h1>
 
-<div class="posts">
-{% for post in collections[tag] | reverse %}
-	{% include "partials/post-card.njk" %}
-{% endfor %}
-</div>
+{% include "partials/taglist.njk" %}
 
-<p>See <a href="tags.njk">all tags</a>.</p>
+<div class="posts">
+	{% for post in collections[tag] | reverse %}
+		<div class="tag-post">
+			<a href="{{ post.url }}">
+				<img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" />
+				{{ post.data.title }}
+			</a>
+			<span>{{ post.data.date | readableDate }}</span>
+		</div>
+	{% endfor %}
+</div>

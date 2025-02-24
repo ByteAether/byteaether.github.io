@@ -22,6 +22,9 @@ article {
 }
 .links-nextprev li.links-nextprev-prev,
 .links-nextprev li.links-nextprev-next {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	background-color: var(--bg-color-secondary);
 	box-shadow: 2px 2px 4px var(--shadow-color);
 	transition: background-color 0.3s;
@@ -57,6 +60,8 @@ h1.post-title {
 
 {% include "partials/socials.njk" %}
 
+<hr />
+
 {% if collections.posts %}
 	{% set previousPost = collections.posts | getPreviousCollectionItem %}
 	{% set nextPost = collections.posts | getNextCollectionItem %}
@@ -68,7 +73,7 @@ h1.post-title {
 						<img eleventy:ignore src="{{ previousPost.data.imageUrl }}" alt="" /><br>
 						{{ previousPost.data.title }}
 					</a>
-					<br>← Previous
+					<span>← Previous</span>
 			{% else %}
 				<li>
 			{% endif %}
@@ -79,7 +84,7 @@ h1.post-title {
 						<img eleventy:ignore src="{{ nextPost.data.imageUrl }}" alt="" /><br>
 						{{ nextPost.data.title }}
 					</a>
-					<br>Next →
+					<span>Next →</span>
 			{% else %}
 				<li>
 			{% endif %}
