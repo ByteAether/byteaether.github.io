@@ -1,0 +1,16 @@
+---
+eleventyNavigation:
+  key: "Series"
+  order: 2
+aside: true
+---
+<h1>Series</h1>
+
+<ul>
+{% for k, posts in collections.series %}
+  {% if posts.length > 0 %}
+    {% set serieUrl %}/series/{{ k | slugify }}/{% endset %}
+    <li><a href="{{ serieUrl }}" class="post-tag">{{ k }}</a> ({{ posts.length }})</li>
+  {% endif %}
+{% endfor %}
+</ul>

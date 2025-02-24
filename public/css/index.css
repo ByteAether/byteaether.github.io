@@ -41,10 +41,9 @@
 html,
 body {
 	padding: 0;
-	margin: 0 auto;
+	margin: 0;
 }
 html {
-	overflow-y: scroll;
 	scroll-padding-top: 5rem;
 }
 body {
@@ -138,8 +137,8 @@ blockquote {
 }
 
 main {
-	padding: 1rem;
-	padding-top: 0;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	color: var(--text-color);
 	transition: background-color 0.3s, color 0.3s;
 }

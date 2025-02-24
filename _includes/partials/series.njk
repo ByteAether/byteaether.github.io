@@ -1,0 +1,47 @@
+{% css %}
+.series {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1rem;
+}
+@media(max-width: 1024px) {
+	.series {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media(max-width: 480px) {
+	.series {
+		grid-template-columns: 100%;
+	}
+}
+.series h3 {
+    grid-column: 1 / -1;
+    margin: 0
+}
+.series-post {
+    padding: 0.5rem;
+    background-color: var(--bg-color-secondary);
+    box-shadow: 2px 2px 4px var(--shadow-color);
+    transition: background-color 0.3s;
+}
+{% endcss %}
+
+<div class="series">
+    {% for k, v in collections.series %}
+        {% if v.length > 1 and k in series %}
+            {% set serieUrl %}/series/{{ k | slugify }}/{% endset %}
+            <h3>Latest posts in the <a href="{{ serieUrl }}">{{ k }}</a> series</h3>
+            {% for seriePost in v.slice(-3) | reverse %}
+                <div class="series-post">
+                    <a href="{{ seriePost.url }}">
+                        <img eleventy:ignore src="{{seriePost.data.imageUrl }}" alt="{{ seriePost.data.title }}" class="series-post-image" />
+                        {{ seriePost.data.title }}
+                    </a>
+                    <br />
+                    {{ seriePost.data.date | readableDate }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</div>

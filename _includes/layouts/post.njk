@@ -11,12 +11,20 @@ article {
 
 .links-nextprev {
 	display: flex;
+	gap: 1rem;
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
 .links-nextprev li {
 	width: 50%;
+	padding: 0.5rem;
+}
+.links-nextprev li.links-nextprev-prev,
+.links-nextprev li.links-nextprev-next {
+	background-color: var(--bg-color-secondary);
+	box-shadow: 2px 2px 4px var(--shadow-color);
+	transition: background-color 0.3s;
 }
 .links-nextprev-next {
 	text-align: right;
@@ -25,6 +33,10 @@ article {
 h1.post-title {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+#giscus-comments {
+	margin-top: 1rem;
 }
 
 {% endcss %}
@@ -50,11 +62,33 @@ h1.post-title {
 	{% set nextPost = collections.posts | getNextCollectionItem %}
 	{% if nextPost or previousPost %}
 		<ul class="links-nextprev">
-			<li class="links-nextprev-prev">{% if previousPost %}← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</li>
-			<li class="links-nextprev-next">{% if nextPost %}Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</li>
+			{% if previousPost %}
+				<li class="links-nextprev-prev">
+					<a href="{{ previousPost.url }}">
+						<img eleventy:ignore src="{{ previousPost.data.imageUrl }}" alt="" /><br>
+						{{ previousPost.data.title }}
+					</a>
+					<br>← Previous
+			{% else %}
+				<li>
+			{% endif %}
+			</li>
+			{% if nextPost %}
+				<li class="links-nextprev-next">
+					<a href="{{ nextPost.url }}">
+						<img eleventy:ignore src="{{ nextPost.data.imageUrl }}" alt="" /><br>
+						{{ nextPost.data.title }}
+					</a>
+					<br>Next →
+			{% else %}
+				<li>
+			{% endif %}
+			</li>
 		</ul>
 	{% endif %}
 {% endif %}
+
+{% include "./../partials/series.njk" %}
 
 {% if metadata.githubComments.repo %}
 	<div id="giscus-comments"></div>

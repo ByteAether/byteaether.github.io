@@ -1,6 +1,6 @@
 {% css %}
 .post-metadata {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
 	padding: 0;
@@ -8,7 +8,7 @@
     gap: 1rem 2rem;
 }
 
-.post-metadata .tag {
+.post-metadata .tag, .post-metadata .serie {
 	border: 1px solid var(--border-color);
 	border-radius: 4px;
 	background-color: var(--bg-color-secondary);
@@ -32,6 +32,15 @@
     <div data-words="{{ post.templateContent | striptags | wordcount | formatWords }} words">
         <i class="fa-regular fa-clock"></i>
         {{ post.templateContent | striptags | wordcount | readingTime }}
+    </div>
+    <div>
+        {% if post.data.series.length > 0 %}
+            <i class="fa-solid fa-rectangle-list"></i>
+            {%- for serie in post.data.series %}
+                {%- set serieUrl %}/series/{{ serie | slugify }}/{% endset %}
+                <span class="serie"><a href="{{ serieUrl }}">{{ serie }}</a></span>
+            {%- endfor %}
+        {% endif %}
     </div>
     <div>
         {% set tags = post.data.tags | filterTagList %}

@@ -3,13 +3,10 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import slugify from "slugify"; // Import slugify
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import pluginTOC from "@uncenter/eleventy-plugin-toc";
 import faviconsPlugin from "eleventy-plugin-gen-favicons";
-import path from 'node:path';
-import Image from "@11ty/eleventy-img";
 import Minifier from "html-minifier-terser";
 import Uglify from "uglify-js"
 
@@ -39,22 +36,7 @@ export default async function(eleventyConfig) {
 
 	// Watch content images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
-
-	// Set default computed data for all templates
-	eleventyConfig.addGlobalData("eleventyComputed", {
-		permalink: data => {
-			if (!data.permalink) {
-				// Automatically slugify titles for URLs if no permalink is explicitly set
-				var year = data.date
-					? new Date(data.date).getFullYear() + "/"
-					: "";
-				var name = slugify(data.title ?? data.page.fileSlug, { lower: true, strict: true }) + "/";
-				return `/${year}${name}`;
-			}
-			return data.permalink; // Use the explicitly set permalink if available
-		},
-		imageUrl: data => headerImageUrl(data)
-	});
+	eleventyConfig.addWatchTarget("public/**/*.*");
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
@@ -129,6 +111,7 @@ export default async function(eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginFilters);
 	eleventyConfig.addPlugin(pluginShortcodes);
+	eleventyConfig.addPlugin(pluginCollections);
 
 	eleventyConfig.addTransform('minifier', (value, outputPath) => {
 		if(!outputPath || outputPath.indexOf('.html') <= 0)
@@ -156,7 +139,7 @@ export const config = {
 		"njk",
 		"html",
 		"liquid",
-		"11ty.js",
+		"11tydata.js",
 	],
 
 	// Pre-process *.md files with: (default: `liquid`)
@@ -186,38 +169,6 @@ export const config = {
 
 	// pathPrefix: "/",
 };
-
-async function headerImageUrl(data) {
-	if(!data.image || !data.page.url)
-	{
-		return null;
-	}
-
-	const inputDir = path.dirname(data.page.inputPath);
-	const imagePath = path.resolve(inputDir, data.image);
-
-	const imageOptions = {
-		formats: ["png"],
-		urlPath: data.page.url,
-		outputDir: path.dirname(data.page.outputPath),
-		filenameFormat: function (hash, src, width, format) {
-			return `${hash}-${width}.${format}`;
-		},
-		cacheOptions: {
-		  duration: "1w"
-		}
-	};
-
-	const img = await Image(imagePath, imageOptions);
-
-	// Get the generated image URL
-	const formatData = img[imageOptions.formats[0]];
-	if (!formatData || !formatData[0]) {
-	  throw new Error(`Image processing failed for ${src}`);
-	}
-
-	return formatData[0].url; // Return the URL of the processed image
-}
 
 async function minify(input) {
 	return Minifier.minify(input, {
