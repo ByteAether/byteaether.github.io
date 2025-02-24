@@ -11,9 +11,11 @@ import faviconsPlugin from "eleventy-plugin-gen-favicons";
 import path from 'node:path';
 import Image from "@11ty/eleventy-img";
 import Minifier from "html-minifier-terser";
+import Uglify from "uglify-js"
 
 import pluginFilters from "./_config/filters.js";
 import pluginShortcodes from "./_config/shortcodes.js";
+import pluginCollections from "./_config/collections.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -29,9 +31,7 @@ export default async function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
-		.addPassthroughCopy({
-			"./public": "/",
-		})
+		.addPassthroughCopy("./assets")
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
 	// Run Eleventy when these files change:
@@ -59,11 +59,17 @@ export default async function(eleventyConfig) {
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
 	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist",
+		toFileDirectory: "css",
+		transforms: [ minify ],
 	});
 	// Adds the {% js %} paired shortcode
 	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist",
+		toFileDirectory: "js",
+		transforms: [ uglify ],
+	});
+	eleventyConfig.addBundle("jsraw", {
+		toFileDirectory: "js",
+		outputFileExtension: "js",
 	});
 
 	// Official plugins
@@ -130,13 +136,7 @@ export default async function(eleventyConfig) {
 			return value;
 		}
 
-		return Minifier.minify(value, {
-			useShortDoctype: true,
-			removeComments: true,
-			collapseWhitespace: true,
-			minifyCSS: true,
-			minifyJS: true,
-		});
+		return minify(value);
 	});
 
 	// Features to make your build faster (when you need them)
@@ -217,4 +217,18 @@ async function headerImageUrl(data) {
 	}
 
 	return formatData[0].url; // Return the URL of the processed image
+}
+
+async function minify(input) {
+	return Minifier.minify(input, {
+		useShortDoctype: true,
+		removeComments: true,
+		collapseWhitespace: true,
+		minifyCSS: true,
+		minifyJS: false,
+	});
+}
+
+async function uglify(input) {
+	return Uglify.minify(input).code;
 }

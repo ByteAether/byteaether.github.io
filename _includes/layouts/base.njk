@@ -3,13 +3,20 @@
 	<head>
 		{% include "partials/head.njk" %}
 		
-		{% js %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjs %}
-		{% js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+		{% jsraw "common" %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjsraw %}
+		{% js "common" %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+		{% js "common" %}{% include "public/js/main.js" %}{% endjs %}
 
-		<link rel="stylesheet" href="/css/index.css" />
-		<style>{% getBundle "css" %}</style>
-		<script src="/js/main.js"></script>
-		{% block head %}{% endblock %}
+		{% css "common" %}{% include "public/css/index.css" %}{% endcss %}
+
+		<link rel="stylesheet" href="{% getBundleFileUrl "css", "common" %}">
+		<link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
+
+		<script type="text/javascript">{% include "public/js/theme.js" %}</script>
+		<script type="module" src="{% getBundleFileUrl "jsraw", "common" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "js", "common" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "jsraw" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -35,6 +42,5 @@
 		{% include "partials/footer.njk" %}
 
 		<!-- This page `{{ page.url | absoluteUrl(metadata.url) }}` was built on {{ renderDate | isoDateTime }} -->
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</body>
 </html>

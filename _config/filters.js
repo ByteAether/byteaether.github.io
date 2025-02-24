@@ -1,6 +1,5 @@
 import { DateTime } from "luxon";
 import striptags from "striptags";
-import Image from "@11ty/eleventy-img";
 import path from 'node:path';
 
 export default function(eleventyConfig) {

@@ -1,7 +1,7 @@
 export default {
 	title: "ByteAether",
 	url: "https://byteaether.github.io/",
-	logo: "/img/icon.svg",
+	logo: "/assets/icon.svg",
 	language: "en",
 	description: "Covering different software engineering topics.",
 	tags: ["c#", "csharp", "dotnet", ".net", "byteaether", "blog", "tech", "programming"],
