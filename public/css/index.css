@@ -128,15 +128,15 @@ blockquote {
 }
 
 .content-wrapper {
-	display: grid;
-	grid-auto-flow: column;
-	grid-template-columns: auto min-content;
-	margin-left: auto;
-	margin-right: auto;
+	display: flex;
+	margin: 0 auto;
+	width: 100%;
 	max-width: 70em;
 }
 
 main {
+	flex: 1;
+	overflow: auto;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	color: var(--text-color);
@@ -156,7 +156,6 @@ aside {
 pre,
 code {
 	font-family: var(--font-family-monospace);
-	white-space: break-spaces !important;
 }
 
 pre:not([class*="language-"]),
