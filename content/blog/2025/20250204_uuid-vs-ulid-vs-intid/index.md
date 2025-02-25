@@ -1,7 +1,8 @@
 ---
 title: "UUID vs ULID vs Integer IDs: A Technical Guide for Modern Systems"
 date: 2025-02-04
-tags: ["ByteAether.Ulid", "ULID", "UUID", "GUID", "ID", "Entity Framework", "Database", "SQL", "Performance"]
+series: ["ByteAether.Ulid"]
+tags: ["ULID", "UUID", "GUID", "ID", "Entity Framework", "Database", "SQL", "Performance"]
 image: header.png
 ---
 

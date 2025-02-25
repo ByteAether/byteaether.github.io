@@ -1,6 +1,7 @@
 ---
 title: "ULIDs as the Default Choice for Modern Systems: Lessons from Shopify's Payment Infrastructure"
 date: 2025-02-11
+series: ["ByteAether.Ulid"]
 tags: ["ULID", "UUID", "ID", "Database", "SQL", "Shopify", "Performance"]
 image: header.png
 ---
