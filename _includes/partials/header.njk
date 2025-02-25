@@ -1,11 +1,12 @@
 {% css "common" %}
+/* Base styles */
 header {
     position: sticky;
     top: 0;
 	padding: 0.5em;
     box-shadow: 0 2px 4px var(--shadow-color);
     background-color: var(--bg-color-secondary);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s;
     
     z-index: 1000;
 }
@@ -15,87 +16,147 @@ header {
     }
 }
 
-header:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.header-container {
+#header-container {
     display: flex;
-    flex-wrap: wrap;
-	align-items: center;
-    max-width: 70em;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 70rem;
+    margin: 0 auto;
 }
 
-.header-right {
-    margin-left: auto;
-    font-size: 1.5rem;
-}
-
-.header-right a {
-    color: var(--text-color) !important;
-    margin-left: 0.5rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-.header-right a:hover {
-    color: var(--link-color-hover) !important;
-}
-
-.home-link {
-	font-size: 1.5em;
-	font-weight: 700;
-	margin-right: 2em;
-    text-decoration: none !important;
+/* Logo and site title */
+.header-left {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none !important;
+    color: var(--text-color);
+    margin-right: 1em;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+.header-left img {
+    height: 2rem;
 }
 
-.home-link .logo-img {
-    max-height: 32px;
-    width: auto;
+/* Desktop navigation (inline next to logo) */
+.desktop-nav {
+    flex-grow: 1;
+}
+.desktop-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
 }
 
-/* Nav */
-.nav {
-	display: flex;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-    align-items: center;
+.desktop-nav ul li {
 }
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
+
+.desktop-nav ul li a {
+    text-decoration: none;
 }
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
+.desktop-nav ul li a:hover {
+    text-decoration: none;
 }
-.nav a[href][aria-current="page"] {
+.desktop-nav ul li a[aria-current="page"] {
     font-weight: 700;
 }
 
-.toggle-dark {
+/* Right side links */
+.header-right {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+.header-right a {
+    text-decoration: none;
+    color: var(--text-color) !important;
     cursor: pointer;
+    transition: color 0.3s;
+}
+.header-right a:hover {
+    color: var(--link-color-hover);
+    transition: color 0.3s;
+}
+
+/* Hide the checkbox (used to toggle mobile menu) */
+.nav-toggle {
+    display: none;
+}
+
+/* Burger menu icon hidden by default */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+    
+/* Mobile nav styling */
+.mobile-nav {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color-secondary);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.3s;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav ul li {
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.3s;
+}
+.mobile-nav ul li a[aria-current="page"] {
+    font-weight: 700;
+}
+
+/* Mobile Styles */
+@media (max-width: 640px) {
+    /* Hide desktop nav and show burger icon */
+    .desktop-nav {
+        display: none;
+    }
+    .burger-menu {
+        display: inline-block;
+    }
+    
+    /* When the hidden checkbox is checked, show the mobile nav */
+    #nav-toggle:checked ~ .mobile-nav {
+        display: block;
+    }
 }
 {% endcss %}
 
 <header>
-    <div class="header-container">
-        <a href="/" class="home-link">
+    <div id="header-container">
+        <a href="/" class="header-left">
             <img eleventy:ignore src="{{ metadata.logo }}" alt="Logo" class="logo-img" />
             {{ metadata.title }}
         </a>
 
-        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-        <nav>
-            <h2 class="visually-hidden">Top level navigation menu</h2>
-            <ul class="nav">
+        <!-- Desktop navigation -->
+        <nav class="desktop-nav">
+            <ul>
                 {% for entry in collections.all | eleventyNavigation %}
-                    <li class="nav-item">
+                    <li>
                         <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
                             {{ entry.title }}
                         </a>
@@ -103,13 +164,29 @@ header:after {
                 {% endfor %}
             </ul>
         </nav>
-
-        <span class="header-right">
+        
+        <div class="header-right">
             <a href="https://github.com/ByteAether" title="{{ metadata.title }}" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></a>
+            
+            <label for="nav-toggle" class="burger-menu"><i class="fa-solid fa-bars"></i></label>
+        </div>
 
-            <a class="toggle-dark" onclick="themeManager.toggle()">
-                <i class="fa-solid fa-sun"></i>
-            </a>
-        </span>
+        
+        <!-- The hidden checkbox to toggle mobile menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        
+        <!-- Mobile navigation (will slide/drop down when burger is clicked) -->
+        <nav class="mobile-nav">
+            <ul>
+                {% for entry in collections.all | eleventyNavigation %}
+                    <li>
+                        <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
+                            {{ entry.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
     </div>
 </header>
