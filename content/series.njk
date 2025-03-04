@@ -4,7 +4,7 @@ const eleventyNavigation = {
 	key: "Series",
 	order: 2,
 };
-const aside = true;
+const showAside = true;
 
 function pageSeries(collection){
   return Object.keys(collection)
@@ -28,9 +28,9 @@ function pageSeries(collection){
 		grid-template-columns: 1fr 1fr;
 	}
 }
-@media(max-width: 640px) {
+@media(max-width: 480px) {
 	.series-posts {
-		grid-template-columns: 100%;
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -68,7 +68,7 @@ h3.series-title {
 			{% for post in series.posts.slice(-3) | reverse %}
 				<div class="series-post">
 					<a href="{{ post.url }}">
-						<img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" />
+						<img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="banner" />
 						{{ post.data.title }}
 					</a>
 				</div>

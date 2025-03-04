@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: "About"
   order: 5
-aside: true
+showAside: true
 ---
 # About me
 

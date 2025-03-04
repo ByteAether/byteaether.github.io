@@ -17,6 +17,7 @@
 		<script type="module" src="{% getBundleFileUrl "js", "common" %}"></script>
 		<script type="module" src="{% getBundleFileUrl "jsraw" %}"></script>
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+		{% RenderContentBlock "head" %}
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -31,12 +32,16 @@
 				</heading-anchors>
 			</main>
 
-			{% if aside %}
+			{% if showAside %}
 				<aside>
 					{% include "partials/aside.njk" %}
 				</aside>
 			{% endif %}
 
+		</div>
+
+		<div class="bottom-content">
+			{% RenderContentBlock "bottom-content" %}
 		</div>
 
 		{% include "partials/footer.njk" %}

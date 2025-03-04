@@ -10,7 +10,7 @@ const pagination = {
 
 const eleventyExcludeFromCollections = true;
 
-const aside = true;
+const showAside = true;
 
 const eleventyComputed = {
 	title: "Tagged '{{ tag }}'",
@@ -66,7 +66,7 @@ function pageTags(collection){
 	{% for post in collections[tag] | reverse %}
 		<div class="tag-post">
 			<a href="{{ post.url }}">
-				<img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" />
+				<img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="banner" />
 				{{ post.data.title }}
 			</a>
 			<span>{{ post.data.date | readableDate }}</span>

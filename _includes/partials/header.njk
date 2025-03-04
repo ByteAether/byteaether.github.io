@@ -1,7 +1,8 @@
 {% css "common" %}
 /* Base styles */
 header {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
 	padding: 0.5em;
     box-shadow: 0 2px 4px var(--shadow-color);
@@ -13,6 +14,7 @@ header {
 @media(max-height: 480px) {
     header {
         position: relative;
+        margin-bottom: -4rem;
     }
 }
 

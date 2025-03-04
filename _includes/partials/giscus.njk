@@ -1,0 +1,35 @@
+{% css %}
+#giscus-comments {
+	margin-top: 1rem;
+	width: 100%;
+}
+{% endcss %}
+
+{% if metadata.githubComments.repo and showComments %}
+	<div id="giscus-comments"></div>
+	<script>
+		// Wait for the DOM to load or ensure themeManager is available
+		document.addEventListener("DOMContentLoaded", () => {
+			const giscusContainer = document.getElementById("giscus-comments");
+
+			const script = document.createElement("script");
+			script.src = "https://giscus.app/client.js";
+			script.setAttribute("data-repo", "{{ metadata.githubComments.repo }}");
+			script.setAttribute("data-repo-id", "{{ metadata.githubComments.repoId }}");
+			script.setAttribute("data-category", "{{ metadata.githubComments.category }}");
+			script.setAttribute("data-category-id", "{{ metadata.githubComments.categoryId }}");
+			script.setAttribute("data-mapping", "pathname");
+			script.setAttribute("data-strict", "0");
+			script.setAttribute("data-reactions-enabled", "1");
+			script.setAttribute("data-emit-metadata", "0");
+			script.setAttribute("data-input-position", "top");
+			script.setAttribute("data-theme", themeManager.get());
+			script.setAttribute("data-lang", "en");
+			script.setAttribute("data-loading", "lazy");
+			script.setAttribute("crossorigin", "anonymous");
+			script.async = true;
+
+			giscusContainer.appendChild(script);
+		});
+	</script>
+{% endif %}

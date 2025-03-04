@@ -7,17 +7,23 @@ layout: layouts/base.njk
 {% css %}
 article {
 	padding-top: 2rem;
+	text-align: justify;
 }
 
 .links-nextprev {
-	display: flex;
-	gap: 1rem;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1fr 1fr;
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
+@media(max-width: 480px) {
+	.links-nextprev {
+		grid-template-columns: 1fr;
+	}
+}
 .links-nextprev li {
-	width: 50%;
 	padding: 0.5rem;
 }
 .links-nextprev li.links-nextprev-prev,
@@ -37,16 +43,11 @@ h1.post-title {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
-
-#giscus-comments {
-	margin-top: 1rem;
-}
-
 {% endcss %}
 
 <article>
 	{% if imageUrl %}
-		<img eleventy:ignore src="{{ imageUrl }}" alt="" class="post-header" />
+		<img eleventy:ignore src="{{ imageUrl }}" alt="" class="banner" />
 	{% endif %}
 
 	<h1 class="post-title">{{ title }}</h1>
@@ -60,66 +61,41 @@ h1.post-title {
 
 {% include "partials/socials.njk" %}
 
-<hr />
+{% ContentBlock "bottom-content" %}
 
-{% if collections.posts %}
-	{% set previousPost = collections.posts | getPreviousCollectionItem %}
-	{% set nextPost = collections.posts | getNextCollectionItem %}
-	{% if nextPost or previousPost %}
-		<ul class="links-nextprev">
-			{% if previousPost %}
-				<li class="links-nextprev-prev">
-					<a href="{{ previousPost.url }}">
-						<img eleventy:ignore src="{{ previousPost.data.imageUrl }}" alt="" /><br>
-						{{ previousPost.data.title }}
-					</a>
-					<span>← Previous</span>
-			{% else %}
-				<li>
-			{% endif %}
-			</li>
-			{% if nextPost %}
-				<li class="links-nextprev-next">
-					<a href="{{ nextPost.url }}">
-						<img eleventy:ignore src="{{ nextPost.data.imageUrl }}" alt="" /><br>
-						{{ nextPost.data.title }}
-					</a>
-					<span>Next →</span>
-			{% else %}
-				<li>
-			{% endif %}
-			</li>
-		</ul>
+	{% if collections.posts %}
+		{% set previousPost = collections.posts | getPreviousCollectionItem %}
+		{% set nextPost = collections.posts | getNextCollectionItem %}
+		{% if nextPost or previousPost %}
+			<ul class="links-nextprev">
+				{% if previousPost %}
+					<li class="links-nextprev-prev">
+						<a href="{{ previousPost.url }}">
+							<img eleventy:ignore src="{{ previousPost.data.imageUrl }}" alt="" class="banner" /><br>
+							{{ previousPost.data.title }}
+						</a>
+						<span>← Previous</span>
+				{% else %}
+					<li>
+				{% endif %}
+				</li>
+				{% if nextPost %}
+					<li class="links-nextprev-next">
+						<a href="{{ nextPost.url }}">
+							<img eleventy:ignore src="{{ nextPost.data.imageUrl }}" alt="" class="banner" /><br>
+							{{ nextPost.data.title }}
+						</a>
+						<span>Next →</span>
+				{% else %}
+					<li>
+				{% endif %}
+				</li>
+			</ul>
+		{% endif %}
 	{% endif %}
-{% endif %}
 
-{% include "./../partials/series.njk" %}
+	{% include "./../partials/series.njk" %}
 
-{% if metadata.githubComments.repo %}
-	<div id="giscus-comments"></div>
-	<script>
-		// Wait for the DOM to load or ensure themeManager is available
-		document.addEventListener("DOMContentLoaded", () => {
-			const giscusContainer = document.getElementById("giscus-comments");
+	{% include "./../partials/giscus.njk" %}
 
-			const script = document.createElement("script");
-			script.src = "https://giscus.app/client.js";
-			script.setAttribute("data-repo", "{{ metadata.githubComments.repo }}");
-			script.setAttribute("data-repo-id", "{{ metadata.githubComments.repoId }}");
-			script.setAttribute("data-category", "{{ metadata.githubComments.category }}");
-			script.setAttribute("data-category-id", "{{ metadata.githubComments.categoryId }}");
-			script.setAttribute("data-mapping", "pathname");
-			script.setAttribute("data-strict", "0");
-			script.setAttribute("data-reactions-enabled", "1");
-			script.setAttribute("data-emit-metadata", "0");
-			script.setAttribute("data-input-position", "top");
-			script.setAttribute("data-theme", themeManager.get());
-			script.setAttribute("data-lang", "en");
-			script.setAttribute("data-loading", "lazy");
-			script.setAttribute("crossorigin", "anonymous");
-			script.async = true;
-
-			giscusContainer.appendChild(script);
-		});
-	</script>
-{% endif %}
+{% endContentBlock %}

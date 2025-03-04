@@ -21,7 +21,7 @@
     <div>
         <h2><a href="{{ post.url }}">
             {% if post.data.imageUrl %}
-                <img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="post-card-image" />
+                <img eleventy:ignore src="{{ post.data.imageUrl }}" alt="{{ post.data.title }}" class="banner" />
             {% endif %}
 
             {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}

@@ -1,16 +1,34 @@
 {% css %}
+aside {
+	width: 18em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+@media(max-width: 1024px) {
+	aside {
+		display: none;
+	}
+}
+
+.sticky-container {
+    position: sticky;
+    bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 10rem);
+}
+
 .aside-content {
-    margin-top: 2rem;
     margin-left: 0.5rem;
     padding: 0.5rem;
     font-size: 0.9rem;
     border-left: 1px solid var(--border-color);
     transition: border-color 0.3s;
-}
-
-.toc-container {
-    position: sticky;
-    top: 5rem;
 }
 
 .aside-content ol {
@@ -24,6 +42,8 @@
     margin-top: 1rem;
 }
 {% endcss %}
+
+<div class="sticky-container">
 
 <div class="recents-container aside-content">
     <span><b>Recents</b></span>
@@ -42,10 +62,14 @@
 
 {% set outline = content | toc %}
 {% if outline %}
-    <div class="toc-container aside-content">
-        <span><b>Table of Contents</b></span>
-        <div>
-            {{ outline | safe }}
+    <div class="toc-container">
+        <div class="toc-sticky aside-content">
+            <span><b>Table of Contents</b></span>
+            <div>
+                {{ outline | safe }}
+            </div>
         </div>
     </div>
 {% endif %}
+
+</div>

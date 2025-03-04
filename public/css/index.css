@@ -6,7 +6,7 @@
 }
 
 /* Theme colors */
-[data-theme="light"] {
+html {
 	--bg-color-secondary: #f7f7f7; /* Slightly off-white background */
     --bg-color: #eee; /* Secondary background for elements */
     --text-color: #333; /* Dark gray text */
@@ -18,7 +18,7 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] {
+html[data-theme="dark"] {
 	--bg-color: #111; /* Dark gray background */
     --bg-color-secondary: #222; /* Slightly lighter dark gray for elements */
     --text-color: #bbb; /* Light gray text */
@@ -69,17 +69,8 @@ body {
 	width: 1px;
 }
 
-/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
-img {
-  max-width: 100%;
-}
-img[width][height] {
-  height: auto;
-}
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
+img.banner {
+	width: 100%;
 }
 
 p:last-child {
@@ -101,9 +92,16 @@ a.ha {
 	text-decoration: none;
 }
 
+hr {
+	border: 0;
+	border-top: 1px solid var(--border-color);
+	width: 100%
+}
+
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
 	transition: color 0.3s;
+	text-align: left;
 }
 
 h1 {
@@ -111,15 +109,15 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 }
 
 h3 {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 
 h4 {
-	font-size: 1rem;
+	font-size: 1.2rem;
 }
 
 blockquote {
@@ -133,25 +131,24 @@ blockquote {
 	width: 100%;
 	max-width: 70em;
 }
+.bottom-content {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	margin-bottom: 5rem;
+	width: 100%;
+	max-width: 70em;
+}
 
 main {
 	flex: 1;
 	overflow: auto;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+	padding-top: 3rem;
 	padding-bottom: 0.5rem;
 	color: var(--text-color);
 	transition: background-color 0.3s, color 0.3s;
-}
-
-aside {
-	width: 18em;
-}
-
-@media(max-width: 1024px) {
-	aside {
-		display: none;
-	}
 }
 
 pre,

@@ -12,7 +12,7 @@
 }
 @media(max-width: 480px) {
 	.series {
-		grid-template-columns: 100%;
+		grid-template-columns: 1fr;
 	}
 }
 .series h3 {
@@ -38,7 +38,7 @@
             {% for seriePost in v.slice(-3) | reverse %}
                 <div class="series-post">
                     <a href="{{ seriePost.url }}">
-                        <img eleventy:ignore src="{{seriePost.data.imageUrl }}" alt="{{ seriePost.data.title }}" class="series-post-image" />
+                        <img eleventy:ignore src="{{seriePost.data.imageUrl }}" alt="{{ seriePost.data.title }}" class="banner" />
                         {{ seriePost.data.title }}
                     </a>
                     <div>{{ seriePost.data.date | readableDate }}</div>

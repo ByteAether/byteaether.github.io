@@ -7,7 +7,8 @@ export default {
 		"posts"
 	],
 	"layout": "layouts/post.njk",
-	"aside": true,
+	"showAside": true,
+	"showComments": true,
 	"eleventyComputed": {
 		"imageUrl": data => headerImageUrl(data),
 		"permalink": data => blogUrl(data),
