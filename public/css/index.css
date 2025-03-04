@@ -52,6 +52,7 @@ body {
 	background-color: var(--bg-color);
 	line-height: 1.5;
 	transition: background-color 0.3s, color 0.3s;
+	padding-bottom: 5rem;
 }
 
 .flex {
@@ -131,11 +132,11 @@ blockquote {
 	width: 100%;
 	max-width: 70em;
 }
+
 .bottom-content {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	margin-bottom: 5rem;
 	width: 100%;
 	max-width: 70em;
 }
