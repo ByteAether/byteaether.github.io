@@ -3,7 +3,7 @@ export default {
 	url: "https://byteaether.github.io/",
 	logo: "/assets/icon.svg",
 	language: "en",
-	description: "Covering different software engineering topics.",
+	description: "Decoding complexity to craft beautiful simplicity.",
 	tags: ["c#", "csharp", "dotnet", ".net", "byteaether", "blog", "tech", "programming"],
 	author: {
 		name: "Joonatan Uusväli",
