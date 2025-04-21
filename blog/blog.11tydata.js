@@ -8,6 +8,7 @@ export default {
 	],
 	"layout": "layouts/post.njk",
 	"showAside": true,
+	"showTOC": true,
 	"showComments": true,
 	"eleventyComputed": {
 		"imageUrl": data => headerImageUrl(data),
