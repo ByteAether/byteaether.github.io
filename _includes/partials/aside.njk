@@ -48,7 +48,7 @@ aside {
 <div class="sticky-container">
 
 <div class="recents-container aside-content">
-    <span><b>Recents</b></span>
+    <span><b>Recent Posts</b></span>
     <div>
         <nav>
             <ol>
@@ -62,16 +62,18 @@ aside {
     </div>
 </div>
 
-{% set outline = content | toc %}
-{% if outline %}
-    <div class="toc-container">
-        <div class="toc-sticky aside-content">
-            <span><b>Table of Contents</b></span>
-            <div>
-                {{ outline | safe }}
+{% if showTOC %}
+    {% set outline = content | toc %}
+    {% if outline %}
+        <div class="toc-container">
+            <div class="toc-sticky aside-content">
+                <span><b>Table of Contents</b></span>
+                <div>
+                    {{ outline | safe }}
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endif %}
 
 </div>
