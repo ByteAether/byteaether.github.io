@@ -27,7 +27,11 @@ async function headerImageUrl(data) {
 	const imagePath = path.resolve(inputDir, data.image);
 
 	const imageOptions = {
-		formats: ["png"],
+		formats: ["jpeg"],
+		widths: [1024],
+		sharpJpegOptions: {
+			quality: 90
+		},
 		urlPath: data.page.url,
 		outputDir: path.dirname(data.page.outputPath),
 		filenameFormat: function (hash, src, width, format) {
