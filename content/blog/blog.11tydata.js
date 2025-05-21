@@ -27,7 +27,7 @@ async function headerImageUrl(data) {
 	const imagePath = path.resolve(inputDir, data.image);
 
 	const imageOptions = {
-		formats: ["jpeg"],
+		formats: ["webp"],
 		widths: [1024],
 		sharpJpegOptions: {
 			quality: 90

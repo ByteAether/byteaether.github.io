@@ -30,7 +30,7 @@ footer {
     font-weight: bold;
 }
 
-.footer-container a {
+.footer-container a, .footer-container span {
     color: var(--text-color);
     font-size: 1.5rem;
     transition: color 0.3s;
@@ -44,7 +44,7 @@ footer {
         
         <a href="https://github.com/ByteAether" title="{{ metadata.title }}" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="/feed/feed.xml" title="Feed" target="_blank"><i class="fa-solid fa-square-rss"></i></a>
-        <a onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></a>
+        <span onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></span>
         
     </div>
 </footer>

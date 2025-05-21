@@ -2,21 +2,11 @@
 <html lang="{{ metadata.language }}">
 	<head>
 		{% include "partials/head.njk" %}
-		
-		{% jsraw "common" %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjsraw %}
-		{% js "common" %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
-		{% js "common" %}{% include "public/js/main.js" %}{% endjs %}
 
 		{% css "common" %}{% include "public/css/index.css" %}{% endcss %}
 
 		<link rel="stylesheet" href="{% getBundleFileUrl "css", "common" %}">
 		<link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
-
-		<script type="text/javascript">{% include "public/js/theme.js" %}</script>
-		<script type="module" src="{% getBundleFileUrl "jsraw", "common" %}"></script>
-		<script type="module" src="{% getBundleFileUrl "js", "common" %}"></script>
-		<script type="module" src="{% getBundleFileUrl "jsraw" %}"></script>
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 		{% RenderContentBlock "head" %}
 	</head>
 	<body>
@@ -45,6 +35,16 @@
 		</div>
 
 		{% include "partials/footer.njk" %}
+
+		{% jsraw "common" %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjsraw %}
+		{% js "common" %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+		{% js "common" %}{% include "public/js/main.js" %}{% endjs %}
+		
+		<script type="text/javascript">{% include "public/js/theme.js" %}</script>
+		<script type="module" src="{% getBundleFileUrl "jsraw", "common" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "js", "common" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "jsraw" %}"></script>
+		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 
 		<!-- This page `{{ page.url | absoluteUrl(metadata.url) }}` was built on {{ renderDate | isoDateTime }} -->
 	</body>

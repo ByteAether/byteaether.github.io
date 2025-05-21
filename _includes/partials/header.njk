@@ -74,13 +74,13 @@ header {
     gap: 1rem;
     font-size: 1.5rem;
 }
-.header-right a {
+.header-right a, .header-right span {
     text-decoration: none;
     color: var(--text-color) !important;
     cursor: pointer;
     transition: color 0.3s;
 }
-.header-right a:hover {
+.header-right a:hover, .header-right span:hover {
     color: var(--link-color-hover);
     transition: color 0.3s;
 }
@@ -171,7 +171,7 @@ header {
             
             <a href="https://github.com/ByteAether" title="{{ metadata.title }}" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="/feed/feed.xml" title="Feed" target="_blank"><i class="fa-solid fa-square-rss"></i></a>
-            <a onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></a>
+            <span onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></span>
             
             <label for="nav-toggle" class="burger-menu"><i class="fa-solid fa-bars"></i></label>
         </div>
