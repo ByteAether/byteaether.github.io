@@ -18,6 +18,11 @@ header {
     }
 }
 
+header .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 #header-container {
     display: flex;
     justify-content: space-between;
@@ -71,16 +76,16 @@ header {
 /* Right side links */
 .header-right {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    font-size: 1.5rem;
 }
 .header-right a, .header-right span {
     text-decoration: none;
     color: var(--text-color) !important;
-    cursor: pointer;
     transition: color 0.3s;
+    cursor: pointer;
 }
-.header-right a:hover, .header-right span:hover {
+.header-right a:hover, .header-right span:hover, header .icon:hover {
     color: var(--link-color-hover);
     transition: color 0.3s;
 }
@@ -169,11 +174,11 @@ header {
         
         <div class="header-right">
             
-            <a href="https://github.com/ByteAether" title="{{ metadata.title }}" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="/feed/feed.xml" title="Feed" target="_blank"><i class="fa-solid fa-square-rss"></i></a>
-            <span onclick="themeManager.toggle()"><i class="fa-solid fa-sun"></i></span>
+            <a href="https://github.com/ByteAether" title="{{ metadata.title }}" target="_blank"><i class="fa-brands fa-github icon"></i></a>
+            <a href="/feed/feed.xml" title="Feed" target="_blank"><i class="fa-solid fa-square-rss icon"></i></a>
+            <span onclick="themeManager.toggle()"><i class="fa-solid fa-sun icon"></i></span>
             
-            <label for="nav-toggle" class="burger-menu"><i class="fa-solid fa-bars"></i></label>
+            <label for="nav-toggle" class="burger-menu"><i class="fa-solid fa-bars icon"></i></label>
         </div>
 
         

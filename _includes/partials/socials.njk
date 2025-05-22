@@ -8,8 +8,8 @@
 .social {
     display: flex;
     gap: 0.5rem;
-    flex-direction: row-reverse;
     align-items: center;
+    justify-content: right;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -18,30 +18,28 @@
     display: inline-flex;
     align-items: center;
     color: var(--svg-color) !important;
-    font-size: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.3s;
 }
 .social a:hover {
     color: var(--link-color-hover) !important;
+    transition: color 0.3s;
+}
+.social .icon {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 {% endcss %}
 
 <div class="social">
-    <a
-        aria-label="Copy page link to clipboard"
-        onclick="copyUrlToClipboard()"
-        role="link"
-    >
-        <i class="fa-solid fa-link"></i>
-    </a>
+    <b>Share:</b>
     <a
         href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absoluteUrl(metadata.url) }}"
         target="_blank"
         rel="noopener"
         aria-label="Share on Facebook (opens new tab)"
     >
-        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-facebook-f icon"></i>
     </a>
     <a
         href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absoluteUrl(metadata.url) }}"
@@ -49,7 +47,7 @@
         rel="noopener"
         aria-label="Share on LinkedIn (opens new tab)"
     >
-        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-linkedin icon"></i>
     </a>
     <a
         href="https://twitter.com/intent/tweet/?text={{ title }}&url={{ page.url | absoluteUrl(metadata.url) }}"
@@ -57,7 +55,7 @@
         rel="noopener"
         aria-label="Share on Twitter (opens new tab)"
     >
-        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-twitter icon"></i>
     </a>
 
     <a
@@ -66,7 +64,13 @@
         rel="noopener"
         aria-label="Share on Bluesky (opens new tab)"
     >
-        <i class="fa-brands fa-bluesky"></i>
+        <i class="fa-brands fa-bluesky icon"></i>
     </a>
-    <b>Share:</b>
+    <a
+        aria-label="Copy page link to clipboard"
+        onclick="copyUrlToClipboard()"
+        role="link"
+    >
+        <i class="fa-solid fa-link icon"></i>
+    </a>
 </div>

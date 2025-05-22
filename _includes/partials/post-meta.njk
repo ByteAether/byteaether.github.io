@@ -16,26 +16,22 @@
 	transition: background-color 0.3s, border-color 0.3s;
     white-space: nowrap;
 }
-
-.post-metadata svg {
-    margin-right: 0.25rem;
-}
 {% endcss %}
 
 {% set post = collections.posts | getCollectionItem %}
 
 <div class="post-metadata">
     <div>
-        <i class="fa-regular fa-calendar"></i>
+        <i class="fa-regular fa-calendar icon"></i>
         <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
     </div>
     <div data-words="{{ post.templateContent | striptags | wordcount | formatWords }} words">
-        <i class="fa-regular fa-clock"></i>
+        <i class="fa-regular fa-clock icon"></i>
         {{ post.templateContent | striptags | wordcount | readingTime }}
     </div>
     <div>
         {% if post.data.series.length > 0 %}
-            <i class="fa-solid fa-rectangle-list"></i>
+            <i class="fa-solid fa-rectangle-list icon"></i>
             {%- for serie in post.data.series %}
                 {%- set serieUrl %}/series/{{ serie | slugify }}/{% endset %}
                 <span class="serie"><a href="{{ serieUrl }}">{{ serie }}</a></span>
@@ -45,7 +41,7 @@
     <div>
         {% set tags = post.data.tags | filterTagList %}
         {% if tags.length > 0 %}
-            <i class="fa-solid fa-tags"></i>
+            <i class="fa-solid fa-tags icon"></i>
             {%- for tag in tags %}
                 {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
                 <span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>

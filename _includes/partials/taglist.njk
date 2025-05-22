@@ -24,7 +24,7 @@
     {% if tag.posts.length > 0 %}
         {% set tagUrl %}/tags/{{ tag.name | slugify }}/{% endset %}
         <span class="tag{% if tagUrl == page.url %} active{% endif %}">
-            <i class="fa-solid fa-tags"></i>
+            <i class="fa-solid fa-tags icon"></i>
             <a href="{{ tagUrl }}" class="post-tag">{{ tag.name }}</a> ({{ tag.posts.length }})
         </span>
     {% endif %}

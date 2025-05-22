@@ -3,6 +3,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import fontAwesomePlugin from "@11ty/font-awesome";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import pluginTOC from "@uncenter/eleventy-plugin-toc";
@@ -61,6 +62,7 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+	eleventyConfig.addPlugin(fontAwesomePlugin);
 	eleventyConfig.addPlugin(faviconsPlugin, {
 		'manifestData': { 'name': 'ByteAether' }
 	});

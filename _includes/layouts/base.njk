@@ -36,7 +36,8 @@
 
 		{% include "partials/footer.njk" %}
 
-		{% jsraw "common" %}{% include "node_modules/@fortawesome/fontawesome-free/js/all.min.js" %}{% endjsraw %}
+		{% getBundle "fontawesome" %}
+
 		{% js "common" %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 		{% js "common" %}{% include "public/js/main.js" %}{% endjs %}
 		
