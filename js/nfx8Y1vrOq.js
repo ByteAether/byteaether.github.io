@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){new PagefindUI({element:"#search",showImages:!0,sort:{date:"desc"},pageSize:5,excerptLength:60})});
